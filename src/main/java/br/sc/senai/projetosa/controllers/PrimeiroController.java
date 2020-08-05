@@ -9,7 +9,7 @@ public class PrimeiroController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String ola() {
-		return "Ola Spring Boot!";
+		return "Ola Spring!";
 	}
 	
 
