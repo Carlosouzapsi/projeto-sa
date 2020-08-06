@@ -13,5 +13,4 @@ public class Consulta implements Serializable {
 	
 	private Long id;
 	
-
 }
