@@ -9,21 +9,20 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "cliente")
-public class Cliente implements Serializable {
+@Table(name="profissional_psi")
+public class Profissional_psi implements Serializable {
 	
-	private static final long serialVersionUID = 3624675698464100635L;
+	private static final long serialVersionUID = 1L;
 	
 	private Long id;
 	private String nome;
 	private String cpf;
 	private String email;
-	private int idade;
 	private String genero;
 	private String telefone;
+	private String crp;
 	
-	
-	public Cliente() {
+	public Profissional_psi() {
 		
 	}
 	
@@ -35,6 +34,14 @@ public class Cliente implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getCpf() {
@@ -53,14 +60,6 @@ public class Cliente implements Serializable {
 		this.email = email;
 	}
 
-	public int getIdade() {
-		return idade;
-	}
-
-	public void setIdade(int idade) {
-		this.idade = idade;
-	}
-
 	public String getGenero() {
 		return genero;
 	}
@@ -77,12 +76,16 @@ public class Cliente implements Serializable {
 		this.telefone = telefone;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getCrp() {
+		return crp;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setCrp(String crp) {
+		this.crp = crp;
 	}
-		
+	
+	
+	
+	
+	
 }
