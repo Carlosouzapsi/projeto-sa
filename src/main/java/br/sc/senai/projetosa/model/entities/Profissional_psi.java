@@ -2,6 +2,7 @@ package br.sc.senai.projetosa.model.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,7 +13,7 @@ import javax.persistence.Table;
 @Table(name="profissional_psi")
 public class Profissional_psi implements Serializable {
 	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -3184136840428770810L;
 	
 	private Long id;
 	private String nome;
@@ -43,7 +44,8 @@ public class Profissional_psi implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
+	
+	@Column(nullable = false)
 	public String getCpf() {
 		return cpf;
 	}
@@ -75,7 +77,8 @@ public class Profissional_psi implements Serializable {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-
+	
+	@Column(nullable = false)
 	public String getCrp() {
 		return crp;
 	}

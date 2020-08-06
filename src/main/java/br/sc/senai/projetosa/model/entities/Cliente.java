@@ -2,6 +2,7 @@ package br.sc.senai.projetosa.model.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -40,11 +41,12 @@ public class Cliente implements Serializable {
 	public String getCpf() {
 		return cpf;
 	}
-
+	
+	@Column(nullable = false)
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-
+	
 	public String getEmail() {
 		return email;
 	}
