@@ -27,7 +27,9 @@ public class Paciente implements Serializable {
 	public Paciente() {
 		
 	}
-
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	public int getIdPac() {
 		return idPac;
 	}
@@ -43,7 +45,8 @@ public class Paciente implements Serializable {
 	public void setNomePac(String nomePac) {
 		this.nomePac = nomePac;
 	}
-
+	
+	@Column(name="cpf_paciente", nullable = false)
 	public String getCpfPac() {
 		return cpfPac;
 	}

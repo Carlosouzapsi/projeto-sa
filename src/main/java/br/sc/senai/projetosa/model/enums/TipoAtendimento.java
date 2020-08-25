@@ -1,6 +1,6 @@
 package br.sc.senai.projetosa.model.enums;
 
-public enum Tipo_atendimento {
+public enum TipoAtendimento {
 	PRESENCIAL,
 	REMOTO;
 }

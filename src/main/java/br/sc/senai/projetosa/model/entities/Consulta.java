@@ -1,9 +1,20 @@
 package br.sc.senai.projetosa.model.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import br.sc.senai.projetosa.model.enums.TipoAtendimento;
 
 @Entity
 @Table(name="consulta")
@@ -12,36 +23,57 @@ public class Consulta implements Serializable {
 	private static final long serialVersionUID = 8530642283994774442L;
 	
 	private int idConsulta;
-	//definir o enum que é o tipo da consulta;
-	private int idProfissional;
-	private int idPaciente;
+	private TipoAtendimento tipo;
+	private int idPro;
+	private int idPac;
 	private String endereco;
 	private String modalConsulta;
-	//Definir datas;
-	
-	//gerar o toString;
+	private Date data;
 	
 	public Consulta() {
 		
 	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="data", nullable = false)
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
+
+	@Enumerated(EnumType.STRING)
+	@Column(name="tipo_atendimento", nullable = false)
+	public TipoAtendimento getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoAtendimento tipo) {
+		this.tipo = tipo;
+	}
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	public int getIdConsulta() {
 		return idConsulta;
 	}
 	public void setIdConsulta(int idConsulta) {
 		this.idConsulta = idConsulta;
 	}
-	public int getIdProfissional() {
-		return idProfissional;
+	
+	public int getIdPro() {
+		return idPro;
 	}
-	public void setIdProfissional(int idProfissional) {
-		this.idProfissional = idProfissional;
+	public void setIdPro(int idPro) {
+		this.idPro = idPro;
 	}
-	public int getIdPaciente() {
-		return idPaciente;
+	public int getIdPac() {
+		return idPac;
 	}
-	public void setIdPaciente(int idPaciente) {
-		this.idPaciente = idPaciente;
+	public void setIdPac(int idPac) {
+		this.idPac = idPac;
 	}
 	public String getEndereco() {
 		return endereco;
@@ -57,6 +89,12 @@ public class Consulta implements Serializable {
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	@Override
+	public String toString() {
+		return "Consulta [idConsulta=" + idConsulta + ", tipo=" + tipo + ", idPro=" + idPro + ", idPac=" + idPac
+				+ ", endereco=" + endereco + ", modalConsulta=" + modalConsulta + ", data=" + data + "]";
 	}
 	
 }

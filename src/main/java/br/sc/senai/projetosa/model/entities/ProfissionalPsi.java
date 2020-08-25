@@ -27,18 +27,24 @@ public class ProfissionalPsi implements Serializable {
 		
 	}
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	public int getIdPro() {
 		return idPro;
 	}
 	public void setIdPro(int idPro) {
 		this.idPro = idPro;
 	}
+	
+	@Column(name="crp", nullable = false)
 	public String getCrp() {
 		return crp;
 	}
 	public void setCrp(String crp) {
 		this.crp = crp;
 	}
+	
+	@Column(name="cpf_profissional", nullable = false)
 	public String getCpfPro() {
 		return cpfPro;
 	}
@@ -72,11 +78,13 @@ public class ProfissionalPsi implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "ProfissionalPsi [idPro=" + idPro + ", crp=" + crp + ", cpfPro=" + cpfPro + ", whatsappPro="
 				+ whatsappPro + ", emailPro=" + emailPro + ", telPro=" + telPro + ", generoPro=" + generoPro + "]";
 	}
+
 	
+		
 }
