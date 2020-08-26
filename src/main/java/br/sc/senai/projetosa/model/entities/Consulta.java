@@ -24,8 +24,10 @@ public class Consulta implements Serializable {
 	
 	private int idConsulta;
 	private TipoAtendimento tipo;
-	private int idPro;
-	private int idPac;
+	//Chave estrangeira
+	private Paciente paciente;
+	//Chave estrangeira
+	private ProfissionalPsi profissionalPsi;
 	private String endereco;
 	private String modalConsulta;
 	private Date data;
@@ -33,7 +35,23 @@ public class Consulta implements Serializable {
 	public Consulta() {
 		
 	}
+	
+	public Paciente getPaciente() {
+		return paciente;
+	}
 
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
+	}
+
+	public ProfissionalPsi getProfissionalPsi() {
+		return profissionalPsi;
+	}
+
+	public void setProfissionalPsi(ProfissionalPsi profissionalPsi) {
+		this.profissionalPsi = profissionalPsi;
+	}
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="data", nullable = false)
 	public Date getData() {
@@ -63,18 +81,6 @@ public class Consulta implements Serializable {
 		this.idConsulta = idConsulta;
 	}
 	
-	public int getIdPro() {
-		return idPro;
-	}
-	public void setIdPro(int idPro) {
-		this.idPro = idPro;
-	}
-	public int getIdPac() {
-		return idPac;
-	}
-	public void setIdPac(int idPac) {
-		this.idPac = idPac;
-	}
 	public String getEndereco() {
 		return endereco;
 	}
@@ -91,10 +97,4 @@ public class Consulta implements Serializable {
 		return serialVersionUID;
 	}
 
-	@Override
-	public String toString() {
-		return "Consulta [idConsulta=" + idConsulta + ", tipo=" + tipo + ", idPro=" + idPro + ", idPac=" + idPac
-				+ ", endereco=" + endereco + ", modalConsulta=" + modalConsulta + ", data=" + data + "]";
-	}
-	
 }
