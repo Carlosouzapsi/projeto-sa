@@ -90,9 +90,11 @@ public class Consulta implements Serializable {
 	public String getModalConsulta() {
 		return modalConsulta;
 	}
+	
 	public void setModalConsulta(String modalConsulta) {
 		this.modalConsulta = modalConsulta;
 	}
+	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}

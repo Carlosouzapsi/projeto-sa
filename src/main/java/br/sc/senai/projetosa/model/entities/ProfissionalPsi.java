@@ -1,12 +1,16 @@
 package br.sc.senai.projetosa.model.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -22,6 +26,8 @@ public class ProfissionalPsi implements Serializable {
 	private String emailPro;
 	private String telPro;
 	private String generoPro;
+	private List<Paciente> pacientes;
+	private List<Consulta> consulta;
 	
 	public ProfissionalPsi() {
 		
@@ -32,6 +38,8 @@ public class ProfissionalPsi implements Serializable {
 	public int getIdPro() {
 		return idPro;
 	}
+	
+	
 	public void setIdPro(int idPro) {
 		this.idPro = idPro;
 	}
@@ -40,6 +48,8 @@ public class ProfissionalPsi implements Serializable {
 	public String getCrp() {
 		return crp;
 	}
+	
+	//verificar as padronizações existentes de crp...
 	public void setCrp(String crp) {
 		this.crp = crp;
 	}
@@ -57,6 +67,8 @@ public class ProfissionalPsi implements Serializable {
 	public void setWhatsappPro(String whatsappPro) {
 		this.whatsappPro = whatsappPro;
 	}
+	
+	//verificar anotações de validação de email..
 	public String getEmailPro() {
 		return emailPro;
 	}
@@ -75,6 +87,26 @@ public class ProfissionalPsi implements Serializable {
 	public void setGeneroPro(String generoPro) {
 		this.generoPro = generoPro;
 	}
+	
+	
+	public List<Paciente> getPacientes() {
+		return pacientes;
+	}
+	
+	@OneToMany(mappedBy = "paciente", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	public void setPacientes(List<Paciente> pacientes) {
+		this.pacientes = pacientes;
+	}
+	
+	@OneToMany(mappedBy = "consulta", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	public List<Consulta> getConsulta() {
+		return consulta;
+	}
+
+	public void setConsulta(List<Consulta> consulta) {
+		this.consulta = consulta;
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -82,9 +114,8 @@ public class ProfissionalPsi implements Serializable {
 	@Override
 	public String toString() {
 		return "ProfissionalPsi [idPro=" + idPro + ", crp=" + crp + ", cpfPro=" + cpfPro + ", whatsappPro="
-				+ whatsappPro + ", emailPro=" + emailPro + ", telPro=" + telPro + ", generoPro=" + generoPro + "]";
+				+ whatsappPro + ", emailPro=" + emailPro + ", telPro=" + telPro + ", generoPro=" + generoPro
+				+ ", pacientes=" + pacientes + ", consulta=" + consulta + "]";
 	}
 
-	
-		
 }

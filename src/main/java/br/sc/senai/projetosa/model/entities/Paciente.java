@@ -4,9 +4,11 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +25,7 @@ public class Paciente implements Serializable {
 	private String telPac;
 	private String idadePac;
 	private String generoPac;
+	private ProfissionalPsi profissionalpsi;
 	
 	public Paciente() {
 		
@@ -46,6 +49,7 @@ public class Paciente implements Serializable {
 		this.nomePac = nomePac;
 	}
 	
+	//procurar notação de validação de cpf, maven.
 	@Column(name="cpf_paciente", nullable = false)
 	public String getCpfPac() {
 		return cpfPac;
@@ -98,12 +102,25 @@ public class Paciente implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	public ProfissionalPsi getProfissionalpsi() {
+		return profissionalpsi;
+	}
+
+	public void setProfissionalpsi(ProfissionalPsi profissionalpsi) {
+		this.profissionalpsi = profissionalpsi;
+	}
 
 	@Override
 	public String toString() {
 		return "Paciente [idPac=" + idPac + ", nomePac=" + nomePac + ", cpfPac=" + cpfPac + ", whatsappPac="
 				+ whatsappPac + ", emailPac=" + emailPac + ", telPac=" + telPac + ", idadePac=" + idadePac
-				+ ", generoPac=" + generoPac + "]";
+				+ ", generoPac=" + generoPac + ", profissionalpsi=" + profissionalpsi + "]";
 	}
+
+	
+
+	
 	
 }
