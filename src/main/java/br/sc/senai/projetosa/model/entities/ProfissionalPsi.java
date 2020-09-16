@@ -34,7 +34,7 @@ public class ProfissionalPsi implements Serializable {
 	}
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getIdPro() {
 		return idPro;
 	}
@@ -87,7 +87,6 @@ public class ProfissionalPsi implements Serializable {
 	public void setGeneroPro(String generoPro) {
 		this.generoPro = generoPro;
 	}
-	
 	
 	public List<Paciente> getPacientes() {
 		return pacientes;

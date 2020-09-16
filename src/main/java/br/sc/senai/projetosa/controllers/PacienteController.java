@@ -1,16 +1,24 @@
 package br.sc.senai.projetosa.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import br.sc.senai.projetosa.repositories.PacienteRepository;
 
-@RestController
-@RequestMapping(path = "/api")
+@Controller
 public class PacienteController {
 	
 	@Autowired
 	private PacienteRepository pacienteRepository;
+	
+	@GetMapping("/pacientes")
+	public String getFuncionarios(Model model) {
+		
+		model.addAttribute("pacientes", pacienteRepository.findAll());
+		return "pacientes";
+		
+	}
 	
 }
