@@ -2,6 +2,7 @@ package br.sc.senai.projetosa.model.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -24,9 +28,7 @@ public class Consulta implements Serializable {
 	
 	private int idConsulta;
 	private TipoAtendimento tipo;
-	//Chave estrangeira
 	private Paciente paciente;
-	//Chave estrangeira
 	private ProfissionalPsi profissionalPsi;
 	private String endereco;
 	private String modalConsulta;
@@ -36,14 +38,16 @@ public class Consulta implements Serializable {
 		
 	}
 	
+	@ManyToOne
 	public Paciente getPaciente() {
 		return paciente;
 	}
-
+	
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
 	}
-
+	
+	@ManyToOne
 	public ProfissionalPsi getProfissionalPsi() {
 		return profissionalPsi;
 	}

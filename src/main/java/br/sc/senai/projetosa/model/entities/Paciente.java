@@ -1,14 +1,18 @@
 package br.sc.senai.projetosa.model.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,7 +29,7 @@ public class Paciente implements Serializable {
 	private String telPac;
 	private String idadePac;
 	private String generoPac;
-	private ProfissionalPsi profissionalpsi;
+	private List<Consulta> consultas;
 	
 	public Paciente() {
 		
@@ -49,7 +53,6 @@ public class Paciente implements Serializable {
 		this.nomePac = nomePac;
 	}
 	
-	//procurar notação de validação de cpf, maven.
 	@Column(name="cpf_paciente", nullable = false)
 	public String getCpfPac() {
 		return cpfPac;
@@ -103,24 +106,13 @@ public class Paciente implements Serializable {
 		return serialVersionUID;
 	}
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	public ProfissionalPsi getProfissionalpsi() {
-		return profissionalpsi;
+	@OneToMany
+	public List<Consulta> getConsultas() {
+		return consultas;
 	}
 
-	public void setProfissionalpsi(ProfissionalPsi profissionalpsi) {
-		this.profissionalpsi = profissionalpsi;
+	public void setConsultas(List<Consulta> consultas) {
+		this.consultas = consultas;
 	}
-
-	@Override
-	public String toString() {
-		return "Paciente [idPac=" + idPac + ", nomePac=" + nomePac + ", cpfPac=" + cpfPac + ", whatsappPac="
-				+ whatsappPac + ", emailPac=" + emailPac + ", telPac=" + telPac + ", idadePac=" + idadePac
-				+ ", generoPac=" + generoPac + ", profissionalpsi=" + profissionalpsi + "]";
-	}
-
-	
-
-	
 	
 }

@@ -26,8 +26,8 @@ public class ProfissionalPsi implements Serializable {
 	private String emailPro;
 	private String telPro;
 	private String generoPro;
+	private List<Consulta> consultas;
 	private List<Paciente> pacientes;
-	private List<Consulta> consulta;
 	
 	public ProfissionalPsi() {
 		
@@ -49,7 +49,6 @@ public class ProfissionalPsi implements Serializable {
 		return crp;
 	}
 	
-	//verificar as padronizações existentes de crp...
 	public void setCrp(String crp) {
 		this.crp = crp;
 	}
@@ -68,7 +67,6 @@ public class ProfissionalPsi implements Serializable {
 		this.whatsappPro = whatsappPro;
 	}
 	
-	//verificar anotações de validação de email..
 	public String getEmailPro() {
 		return emailPro;
 	}
@@ -88,33 +86,28 @@ public class ProfissionalPsi implements Serializable {
 		this.generoPro = generoPro;
 	}
 	
+	
+	@OneToMany
+	public List<Consulta> getConsultas() {
+		return consultas;
+	}
+
+	public void setConsultas(List<Consulta> consultas) {
+		this.consultas = consultas;
+	}
+	
+	@OneToMany
 	public List<Paciente> getPacientes() {
 		return pacientes;
 	}
-	
-	@OneToMany(mappedBy = "paciente", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+
 	public void setPacientes(List<Paciente> pacientes) {
 		this.pacientes = pacientes;
-	}
-	
-	@OneToMany(mappedBy = "consulta", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	public List<Consulta> getConsulta() {
-		return consulta;
-	}
-
-	public void setConsulta(List<Consulta> consulta) {
-		this.consulta = consulta;
 	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
-	@Override
-	public String toString() {
-		return "ProfissionalPsi [idPro=" + idPro + ", crp=" + crp + ", cpfPro=" + cpfPro + ", whatsappPro="
-				+ whatsappPro + ", emailPro=" + emailPro + ", telPro=" + telPro + ", generoPro=" + generoPro
-				+ ", pacientes=" + pacientes + ", consulta=" + consulta + "]";
-	}
 
 }
