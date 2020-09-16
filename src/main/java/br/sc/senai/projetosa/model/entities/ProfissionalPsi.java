@@ -100,6 +100,7 @@ public class ProfissionalPsi implements Serializable {
 	public List<Paciente> getPacientes() {
 		return pacientes;
 	}
+	
 
 	public void setPacientes(List<Paciente> pacientes) {
 		this.pacientes = pacientes;
