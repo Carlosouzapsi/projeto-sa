@@ -2,8 +2,7 @@ package br.sc.senai.projetosa.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.sc.senai.projetosa.repositories.PacienteRepository;
 
@@ -13,12 +12,9 @@ public class PacienteController {
 	@Autowired
 	private PacienteRepository pacienteRepository;
 	
-	@GetMapping("/pacientes")
-	public String getFuncionarios(Model model) {
-		
-		model.addAttribute("pacientes", pacienteRepository.findAll());
-		return "pacientes";
-		
+	@RequestMapping("/cadastroPaciente")
+	public String form() {
+		return "cadastros/cadastroPaciente";
 	}
 	
 }
