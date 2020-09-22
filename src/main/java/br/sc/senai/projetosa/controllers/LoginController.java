@@ -1,17 +1,15 @@
 package br.sc.senai.projetosa.controllers;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class IndexController {
+public class LoginController {
 	
-	@GetMapping("/")
-	public String index() {
+	@GetMapping("/login")
+	public String login() {
 		
-		return "index";
+		return "login/login";
 	}
-	
-}
 
+}
