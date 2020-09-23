@@ -1,0 +1,243 @@
+/* Estilos Gerais */
+
+body {
+
+    /* Usar a fonte importada 'Roboto' como fonte familiar, 
+    e usar o 'sans-serif' de reserva */
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.row {
+
+    /* Margem: 0 */
+    margin: 0;
+
+}
+
+.container {
+
+    /* Inferior e Superior 70px, Laterais 0 */
+    padding: 70px 0;
+
+}
+
+p,li {
+
+    /* Cinza */
+    color: #444;
+
+    font-size: 14px;
+
+}
+
+/* Barra de Navegação */
+
+header, .navbar {
+
+    /* Cinza Escuro */
+    background-color: #23238E;
+
+}
+
+#nav-container {
+
+    padding-top: 0;
+    padding-bottom: 0;
+
+}
+
+#logo {
+    
+    /* Largura do Logo: 75px */
+    width: 75px
+
+}
+
+.navbar-brand {
+
+    padding: 0;
+
+    /* Cor do Link: Branca */
+    color: #FFF;
+
+}
+
+.navbar-brand:hover {
+
+    /* Permanecer os Links em Branco ao passar o Mouse. */
+    color: #FFF;
+
+}
+
+#navbar-links a {
+    
+    /* Todos os Links serem Brancos. */
+    color: #FFF;
+
+}
+
+#links-dropdown a{
+    color:black;
+}
+
+#links-dropdown a:hover {
+    /* Link fica azul no dropdown */
+    background-color: #23238E;
+    color: #FFF;
+}
+
+/* Sobrescrevendo o código de definição dos Paddings (dos links) do Bootstrap,
+para poder definilos à partir da minha prefência */
+.navbar-expand-lg .navbar-nav .nav-link {
+
+    /*  1 Rem (Unidade de medida que se adapta à fonta da página), 80% rem */
+    padding: 1rem .8rem;
+
+}
+
+
+/* Carrosel - Slides */
+
+
+.container-fluid{
+    padding: 0;
+}
+
+
+#mainSlider .carousel-inner #mainSlider .carousel-item {
+
+    /* Altura do Slide: 90% da tela */
+    height: 90vh;
+
+}
+
+/* Estilizar texto Principal/Padrão */
+#mainSlider .carousel-caption {
+
+    /* Recolar o texto no topo em 30% */
+    top: 30%;
+
+}
+
+/* Estilizar o H2 */
+#mainSlider .carousel-caption h2 {
+
+    /* Tamanho da fonte em 50px */
+    font-size: 50px;
+
+    /* Colocar uma margem de 30px no botão */
+    margin-bottom: 30px;
+
+}
+
+/* Estilizar o p(parágrafo) */
+#mainSlider .carousel-caption p {
+
+    /* Tamanho da fonte em 22px */
+    font-size: 22px;
+
+    /* Grossura da fonte em 300 */
+    font-weight: 300;
+
+    /* Colocar uma margem de 100px no botão */
+    margin-bottom: 30px;
+
+    /* Cor branca */
+    color: #FFF;
+
+}
+
+/* Estilizando Botão */
+.main-btn {
+
+    background-color:#23238E;
+    color:#FFF;
+    text-transform:uppercase;
+    width:200px;
+    height:60px;
+    padding:10px 20px;
+    border-radius:30px;
+    border:3px solid transparent;
+    transition:.5s;
+
+}
+
+.main-btn:hover {
+    
+    text-decoration:none;
+    color:#FFF;
+    background-color:transparent;
+    border-color:#23238E;
+
+}
+
+/* Sobre o Projeto */
+
+#about-area {
+
+    background-color: rgb(225, 243, 255);
+
+}
+
+.main-title {
+
+    color: #444;
+
+    /* Cima, Direita, Baixo, Esquerda */
+    margin: 0 0 10px 0;
+
+    font-size: 40px;
+    text-align: center;
+
+}
+
+.main-title-i {
+
+    color: #444;
+
+    /* Cima, Direita, Baixo, Esquerda */
+    margin: 0 0 10px 0;
+
+    font-size: 1px;
+    text-align: center;
+
+}
+
+.main-title-v {
+
+    color: #444;
+
+    /* Cima, Direita, Baixo, Esquerda */
+    margin: 0 0 50px 0;
+
+    font-size: 1px;
+    text-align: center;
+
+}
+
+/*
+.main-title::after {
+    content:"";
+    border-top: 2px solid #333;
+    width: 15%;
+    position: absolute;
+    top: 60px;
+    left: 42.5%;
+*/
+
+.about-title {
+    font-size: 17px;
+    color: #444;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#about-list li {
+    line-height: 30px;
+}
+
+#about-list i {
+    color: #65DAF9;
+    margin-right: 15px;
+}

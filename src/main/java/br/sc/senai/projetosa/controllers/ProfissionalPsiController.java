@@ -1,16 +1,23 @@
 package br.sc.senai.projetosa.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import br.sc.senai.projetosa.repositories.ProfissionalPsiRepository;
 
-@RestController
-@RequestMapping(path = "/api")
+@Controller
 public class ProfissionalPsiController {
 	
 	@Autowired
-	private ProfissionalPsiRepository profissionalPsiRepository;
+	ProfissionalPsiRepository profissionalPsiRepository;
+	
+	@GetMapping("/profissional-psi")
+	public String getProfissionalPsi(Model model) {
+		
+		return "profissional-psi";
+		
+	}
 
 }
