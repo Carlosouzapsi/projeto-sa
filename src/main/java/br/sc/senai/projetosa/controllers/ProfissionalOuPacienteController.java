@@ -9,7 +9,7 @@ public class ProfissionalOuPacienteController {
 	@GetMapping("/profissional-ou-paciente")
 	public String ProfissionalOuPaciente() {
 		
-		return "profissional-paciente/profissional-ou-paciente";
+		return "cadastros/profissional-ou-paciente";
 		
 	}
 
