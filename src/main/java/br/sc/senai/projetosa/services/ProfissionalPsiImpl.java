@@ -16,21 +16,25 @@ public class ProfissionalPsiImpl implements ProfissionalPsiService {
 	private ProfissionalPsiRepository profissionalPsiRepository;
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<ProfissionalPsi> listarProfissionais() {
 		return(List<ProfissionalPsi>) profissionalPsiRepository.findAll();
 	}
 
 	@Override
+	@Transactional
 	public void salvar(ProfissionalPsi profissionalPsi) {
 		profissionalPsiRepository.save(profissionalPsi);
 	}
 
 	@Override
+	@Transactional
 	public void excluir(ProfissionalPsi profissionalPsi) {
 		profissionalPsiRepository.delete(profissionalPsi);
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public ProfissionalPsi encontrarProfissionalPsi(ProfissionalPsi profissionalPsi) {
 		return profissionalPsiRepository.findById(profissionalPsi.getIdPro()).orElse(null);
 	}
