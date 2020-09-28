@@ -79,9 +79,37 @@
     <br>
     
     
-    <!-- Aqui vai o formulário de cadastro de pacientes -->
+    <!-- Aqui vai o formulário de cadastro de cadastro de profissionais -->
     
     <h1>Cadastro de Profissionais</h1>
+    
+    <form th:action="@{/salvar/profissional}" method="post" th:object="${profissionalPsi}">
+    <br>
+    <label for="nomePro">Nome:</label>
+    <input type="text" name="nome" th:field="*{nomePro}"/>
+    <br>
+    <label for="cpfPac">CPF:</label>
+    <input type="text" name="cpfPro" th:field="*{cpfPro}"/>
+    <br>
+    <label for="crp">CRP(Número de registro Profissional):</label>
+    <input type="text" name="crp" th:field="*{crp}"/>
+    <br>
+    <label for="whatsappPac">Whatsapp:</label>
+    <input type="text" name="whatsappPro" th:field="*{whatsappPro}"/>
+   	<br>
+   	<label for="emailPro">E-mail:</label>
+   	<input type="text" name="emailPro" th:field="*{emailPro}"/>
+   	<br>
+   	<label for="telPro">Telefone:</label>
+   	<input type="text" name="telPro" th:field="*{telPro}">
+   	<br>
+   	<label for="generoPro">Gênero:</label>
+   	<input type="text" name="generoPro" th:field="*{generoPro}">
+   	<br>
+   	<input type="submit" name="salvar" value="salvar"/>
+   	<button>Cancelar</button>
+   	
+    </form>
    
     
     <!--JS -->

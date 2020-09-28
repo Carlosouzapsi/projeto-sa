@@ -83,7 +83,7 @@
     
     <h1>Cadastro de Pacientes</h1>
     
-    <form th:action="@{/salvar}" method="post" th:object="${paciente}">
+    <form th:action="@{/salvar/paciente}" method="post" th:object="${paciente}">
     <br>
     <label for="nomePac">Nome:</label>
     <input type="text" name="nome" th:field="*{nomePac}"/>
@@ -95,16 +95,16 @@
     <input type="text" name="whatsappPac" th:field="*{whatsappPac}"/>
     <br>
     <label for="emailPac">E-mail:</label>
-    <input type="text" name="emailPac" thfield="*{emailPac}"/>
+    <input type="text" name="emailPac" th:field="*{emailPac}"/>
     <br>
     <label for="telPac">Telefone:</label>
-    <input type="text" name="telPac" thfield="*{telPac}">
+    <input type="text" name="telPac" th:field="*{telPac}">
     <br>
     <label for="idadePac">Idade:</label>
-    <input type="text" name="idadePac" thfield="*{idadePac}">
+    <input type="text" name="idadePac" th:field="*{idadePac}">
     <br>
     <label for="generoPac">Gênero</label>
-    <input type="text" name="generoPac" thfield="*{generoPac}">
+    <input type="text" name="generoPac" th:field="*{generoPac}">
      <br>  
     <input type="submit" name="salvar" value="salvar"/>
     <button>Cancelar</button>

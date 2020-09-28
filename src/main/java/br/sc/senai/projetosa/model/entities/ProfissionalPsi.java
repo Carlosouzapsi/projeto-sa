@@ -20,6 +20,7 @@ public class ProfissionalPsi implements Serializable {
 	private static final long serialVersionUID = -3184136840428770810L;
 	
 	private int idPro;
+	private String nomePro;
 	private String crp;
 	private String cpfPro;
 	private String whatsappPro;
@@ -38,10 +39,17 @@ public class ProfissionalPsi implements Serializable {
 	public int getIdPro() {
 		return idPro;
 	}
-	
-	
+
 	public void setIdPro(int idPro) {
 		this.idPro = idPro;
+	}
+	
+	public String getNomePro() {
+		return nomePro;
+	}
+
+	public void setNomePro(String nomePro) {
+		this.nomePro = nomePro;
 	}
 	
 	@Column(name="crp", nullable = false)
