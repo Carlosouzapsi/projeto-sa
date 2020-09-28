@@ -27,6 +27,7 @@ public class ProfissionalPsi implements Serializable {
 	private String emailPro;
 	private String telPro;
 	private String generoPro;
+	private String senhaPro;
 	private List<Consulta> consultas;
 	private List<Paciente> pacientes;
 	
@@ -94,7 +95,14 @@ public class ProfissionalPsi implements Serializable {
 		this.generoPro = generoPro;
 	}
 	
-	
+	public String getSenhaPro() {
+		return senhaPro;
+	}
+
+	public void setSenhaPro(String senhaPro) {
+		this.senhaPro = senhaPro;
+	}
+
 	@OneToMany
 	public List<Consulta> getConsultas() {
 		return consultas;

@@ -29,6 +29,7 @@ public class Paciente implements Serializable {
 	private String telPac;
 	private String idadePac;
 	private String generoPac;
+	private String senhaPac;
 	private List<Consulta> consultas;
 	
 	public Paciente() {
@@ -101,11 +102,19 @@ public class Paciente implements Serializable {
 	public void setGeneroPac(String generoPac) {
 		this.generoPac = generoPac;
 	}
+	
+	public String getSenhaPac() {
+		return senhaPac;
+	}
+
+	public void setSenhaPac(String senhaPac) {
+		this.senhaPac = senhaPac;
+	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
+		
 	@OneToMany
 	public List<Consulta> getConsultas() {
 		return consultas;
