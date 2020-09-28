@@ -3,7 +3,9 @@ package br.sc.senai.projetosa.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import br.sc.senai.projetosa.model.entities.Paciente;
 import br.sc.senai.projetosa.model.entities.ProfissionalPsi;
 import br.sc.senai.projetosa.services.ProfissionalPsiService;
 
@@ -16,9 +18,12 @@ public class ProfissionalPsiController {
 	
 	@GetMapping("/cadastroProfissionalPsi")
 	public String ProfissionalPsi(ProfissionalPsi profissionalpsi) {
-		
 		return "cadastros/cadastroProfissionalPsi";
-		
 	}
-
+	
+	@PostMapping("/salvar")
+	public String salvar(ProfissionalPsi profissionalPsi) {
+		profissionalPsiService.salvar(profissionalPsi);
+		return "redirect:/";
+	}
 }
