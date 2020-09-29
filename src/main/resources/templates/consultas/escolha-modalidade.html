@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AcheUmPsi - Dados de perfil paciente</title>
+    <title>AcheUmPsi - Escolha de modalidade</title>
 
     <!--CSS-->
     <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
@@ -77,45 +77,17 @@
     <br>
     <br>
     <br>
- 
-    <!-- Aqui vai os dados do perfil do pacientes -->
-    <h1>Dados do perfil</h1>
-    
-    <form th:action="@{/salvar/paciente}" method="post" th:object="${paciente}">
-    <br>
-    <label for="nomePac">Nome:</label>
-    <input type="text" name="nome" th:field="*{nomePac}"/>
-    <br>
-    <label for="cpfPac">CPF:</label>
-    <input type="text" name="cpfPac" th:field="*{cpfPac}"/>
-    <br>
-    <label for="whatsappPac">Whatsapp</label>
-    <input type="text" name="whatsappPac" th:field="*{whatsappPac}"/>
-    <br>
-    <label for="emailPac">E-mail:</label>
-    <input type="text" name="emailPac" th:field="*{emailPac}"/>
-    <br>
-    <label for="telPac">Telefone:</label>
-    <input type="text" name="telPac" th:field="*{telPac}">
-    <br>
-    <label for="idadePac">Idade:</label>
-    <input type="text" name="idadePac" th:field="*{idadePac}">
-    <br>
-    <label for="generoPac">Gênero</label>
-    <input type="text" name="generoPac" th:field="*{generoPac}">
-     <br>
-    <label for="senhaPac">Senha</label>
-    <input type="text" name="senhaPac" th:field="*{senhaPac}">
-    <br>
-    <input type="submit" name="salvar" value="salvar"/>
-    <button>Cancelar</button> 
-    </form>
     
     
-    
-    
+    <!-- Aqui vai o formulário de login de pacientes -->
     	
-    	
+    	<h1>Escolha uma modalidade de atendimento</h1>
+    	<form>
+    	<input type="submit" value="Online">
+    	</form>
+    	<form>
+    	<input type="submit" value="Presencial">
+    	</form>
     
     <!--JS -->
     <script th:src="@{/js/jquery-3.5.1.min.js}"></script>

@@ -85,6 +85,7 @@
     
     <form th:action="@{/salvar/paciente}" method="post" th:object="${paciente}">
     <br>
+    <input type="hidden" name="idPac" th:field="*{idPac}"/>
     <label for="nomePac">Nome:</label>
     <input type="text" name="nome" th:field="*{nomePac}"/>
     <br>
