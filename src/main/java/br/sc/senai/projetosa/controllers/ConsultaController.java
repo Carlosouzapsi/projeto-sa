@@ -19,5 +19,20 @@ public class ConsultaController {
 		return "consultas/escolha-modalidade";
 		
 	}
+	
+	
+	@GetMapping("escolhaModalidade/modalidadeOnline")
+	public String ModalidadeOnline(Consulta consulta) {
+		
+		return "consultas/modalidade-online-lista";
+		
+	}
+	
+	@GetMapping("escolhaModalidade/modalidadePresencial")
+	public String ModalidadePresencial(Consulta consulta) {
+		
+		return "consultas/modalidade-presencial-lista";
+		
+	}
 
 }
