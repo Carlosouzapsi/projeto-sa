@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import br.sc.senai.projetosa.model.entities.Consulta;
 import br.sc.senai.projetosa.services.ConsultaService;
 
-@Controller
+@Controller //controller da consulta!
 public class ConsultaController {
 	
 	@Autowired
