@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcheUmPsi - Cadastro de Profissionais</title>
+
+    <!--CSS-->
+    <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/fontawesome.min.css}">
+    <link rel="stylesheet" th:href="@{/css/estilo.css}">
+</head>
+<body>
+    <header>
+        <div class="container" 
+        id="nav-container">
+
+            <nav class="navbar navbar-expand-lg fixed-top">
+
+                <a th:href="@{/}"
+                class="navbar-brand">
+
+                    <!-- Imagem da Logomarca : Barra de Navegação TOPO -->
+                    <img 
+                    id="logo"
+                    src="/img/psicologia.png"
+                    alt="AcheUmPsi"> &nbsp;AcheSeuPsi
+
+                </a>
+
+                <!-- Botão com os Recursos do Framework Bootstrap -->
+                <button class="navbar-toggler" 
+                        type="button" 
+                        data-toggle="collapse" 
+                        data-target="#navbar-links" 
+                        aria-controls="navbar-links"
+                        aria-expanded="false"
+                        aria-label="Toogle navigation">
+
+                        <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+                <!-- Barra de Navegação / ID's & Links -->
+                <div class="collapse navbar-collapse justify-content-end"
+                     id="navbar-links">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a th:href="@{/}" class="nav-link" id="home-menu">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/projeto}" class="nav-link" id="about-menu">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O Projeto</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a th:href="@{/}" class="nav-link dropdown" data-toggle="dropdown" id="services-menu">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serviços</a>
+                            <div class="dropdown-menu" id="links-dropdown">
+                                <a href="" class="dropdown-item">Cadastro de Profissionais</a>
+                                <a href="" class="dropdown-item">Cadastro de clientes</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link" id="team-menu">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sobre Nós</a>
+                        </li>
+                        <li clas="nav-item">
+                            <a href="" class="nav-link" id="contact-menu"> |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contato</a>
+                        </li> 
+                    </ul>
+                </div>
+
+            </nav>
+        </div>
+
+    </header>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+    <!-- Aqui vai o formulário de cadastro de cadastro de profissionais -->
+    
+    <h1>Cadastro de Profissionais</h1>
+    
+    <form th:action="@{/salvar/profissional}" method="post" th:object="${profissionalPsi}">
+    <br>
+    <label for="nomePro">Nome:</label>
+    <input type="text" name="nome" th:field="*{nomePro}"/>
+    <br>
+    <label for="cpfPac">CPF:</label>
+    <input type="text" name="cpfPro" th:field="*{cpfPro}"/>
+    <br>
+    <label for="crp">CRP(Número de registro Profissional):</label>
+    <input type="text" name="crp" th:field="*{crp}"/>
+    <br>
+    <label for="whatsappPac">Whatsapp:</label>
+    <input type="text" name="whatsappPro" th:field="*{whatsappPro}"/>
+   	<br>
+   	<label for="emailPro">E-mail:</label>
+   	<input type="text" name="emailPro" th:field="*{emailPro}"/>
+   	<br>
+   	<label for="telPro">Telefone:</label>
+   	<input type="text" name="telPro" th:field="*{telPro}">
+   	<br>
+   	<label for="generoPro">Gênero:</label>
+   	<input type="text" name="generoPro" th:field="*{generoPro}">
+   	<br>
+   	<input type="submit" name="salvar" value="salvar"/>
+   	<button>Cancelar</button>
+   	
+    </form>
+   
+    
+    <!--JS -->
+    <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
+    <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>
+</body>
+</html>
