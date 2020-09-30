@@ -2,6 +2,7 @@ package br.sc.senai.projetosa.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -22,7 +23,7 @@ public class PacienteController {
 	
 	@GetMapping("/adicionar")
 	public String adicionar(Paciente paciente) {	
-		return "alterar";	
+		return "cadastros/cadastroPaciente";	
 	}
 	
 	@PostMapping("/salvar/paciente")
@@ -30,5 +31,13 @@ public class PacienteController {
 		pacienteService.salvar(paciente);
 		return "redirect:/";
 	}
-
+	
+	@GetMapping("/cadastroPaciente/dadosPerfil/{idPac}")
+	public String editar(Paciente paciente, Model model) {
+		paciente = pacienteService.encontrarPaciente(paciente);	
+		model.addAttribute("paciente", paciente);
+		return "cadastros/cadastroPaciente";
+		
+	}
+	
 }
