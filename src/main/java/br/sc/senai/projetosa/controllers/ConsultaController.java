@@ -16,22 +16,21 @@ public class ConsultaController {
 	@GetMapping("/escolhaModalidade")
 	public String ModalidadeEscolha(Consulta consulta) {
 		
-		return "consultas/escolha-modalidade";
+		return "consultas/escolhaModalidade";
 		
 	}
-	
 	
 	@GetMapping("escolhaModalidade/modalidadeOnline")
 	public String ModalidadeOnline(Consulta consulta) {
 		
-		return "consultas/modalidade-online-lista";
+		return "consultas/modalidadeOnlineLista";
 		
 	}
 	
 	@GetMapping("escolhaModalidade/modalidadePresencial")
 	public String ModalidadePresencial(Consulta consulta) {
 		
-		return "consultas/modalidade-presencial-lista";
+		return "consultas/modalidadePresencialLista";
 		
 	}
 

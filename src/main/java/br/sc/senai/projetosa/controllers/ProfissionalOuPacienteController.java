@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ProfissionalOuPacienteController {
 	
-	@GetMapping("/profissional-ou-paciente")
+	@GetMapping("/profissionalOuPaciente")
 	public String ProfissionalOuPaciente() {
 		
-		return "cadastros/profissional-ou-paciente";
+		return "cadastros/profissionalOuPaciente";
 		
 	}
 

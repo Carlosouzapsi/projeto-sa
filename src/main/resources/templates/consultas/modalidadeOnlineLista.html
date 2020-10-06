@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcheUmPsi - Escolha de modalidade</title>
+
+    <!--CSS-->
+    <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/fontawesome.min.css}">
+    <link rel="stylesheet" th:href="@{/css/estilo.css}">
+</head>
+<body>
+    <header>
+        <div class="container" 
+        id="nav-container">
+
+            <nav class="navbar navbar-expand-lg fixed-top">
+
+                <a th:href="@{/}"
+                class="navbar-brand">
+
+                    <!-- Imagem da Logomarca : Barra de Navegação TOPO -->
+                    <img 
+                    id="logo"
+                    src="/img/psicologia.png"
+                    alt="AcheUmPsi"> &nbsp;AcheSeuPsi
+
+                </a>
+
+                <!-- Botão com os Recursos do Framework Bootstrap -->
+                <button class="navbar-toggler" 
+                        type="button" 
+                        data-toggle="collapse" 
+                        data-target="#navbar-links" 
+                        aria-controls="navbar-links"
+                        aria-expanded="false"
+                        aria-label="Toogle navigation">
+
+                        <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+                <!-- Barra de Navegação / ID's & Links -->
+                <div class="collapse navbar-collapse justify-content-end"
+                     id="navbar-links">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a th:href="@{/}" class="nav-link" id="home-menu">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/projeto}" class="nav-link" id="about-menu">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O Projeto</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a th:href="@{/}" class="nav-link dropdown" data-toggle="dropdown" id="services-menu">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serviços</a>
+                            <div class="dropdown-menu" id="links-dropdown">
+                                <a href="" class="dropdown-item">Cadastro de Profissionais</a>
+                                <a href="" class="dropdown-item">Cadastro de clientes</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link" id="team-menu">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sobre Nós</a>
+                        </li>
+                        <li clas="nav-item">
+                            <a href="" class="nav-link" id="contact-menu"> |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contato</a>
+                        </li> 
+                    </ul>
+                </div>
+
+            </nav>
+        </div>
+
+    </header>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+    <!-- Aqui vai o formulário de login de pacientes -->
+    	
+    	<h1>Modalidade de atendimento presencial escolhida</h1>
+    	
+    	<label for="servicos">Digite o tipo de serviço que você busca:</label>
+    	<br>
+		<select name="" id="tipo_servico">
+		  <option value="selecione uma opção">Selecione uma opção</option>
+		  <option value="Acompanhamento Terapêutico">Acompanhamento terapêutico</option>
+		  <option value="Terapia Individual">Terapia individual</option>
+		  <option value="Terapia de casais">Terapia de casais</option>
+		  <option value="Avaliação psicológica">Avaliação psicológica</option>
+		  <option value="Orientação Profissional">Orientação Profissional</option>
+		</select>
+		<br>
+		<label for="">Já se consultou com um psicólogo antes?</label>
+		<br>
+		<select name="" id="">
+		  <option value="selecione uma opção">Selecione uma opção</option>
+		  <option value="Sim">Sim</option>
+		  <option value="Não">Não</option>
+		</select>
+		<br>
+		<label for="tema">Qual tema você gostaria de abordar com o profissional?</label>
+		<br>
+		<select name="" id="">
+		  <option value="selecione uma opção">Ansiedade</option>
+		  <option value="Acompanhamento Terapêutico">Depressão</option>
+		  <option value="Terapia Individual">Não</option>
+		  <option value="Não tenho certeza">Não tenho certeza</option>
+		</select>
+		<br>
+		<label for="">Em quanto tempo você deseja realizar sua consulta?</label>
+		<br>
+		<select name="" id="">
+		  <option value="urgente">Urgente</option>
+		  <option value="7 dias">daqui a 7 dias</option>
+		  <option value="15 dias">15 dias</option>
+		  <option value="1 mês">1 mês</option>
+		</select>
+		<br>
+		<label for="informacoes_adicionais">Informações Adicionais</label>
+		<br>
+        <textarea id="msg"></textarea>
+        <br>
+        <button>Encontrar Profissional</button>
+        <button>Cancelar</button>
+		
+		
+  
+    <!--JS -->
+    <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
+    <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>
+</body>
+</html>
