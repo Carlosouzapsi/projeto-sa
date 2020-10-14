@@ -22,22 +22,36 @@ public class PacienteController {
 	
 	@Autowired
 	private PacienteService pacienteService;
-			
+		
 	@GetMapping("/cadastrar")
-	public String adicionar(Paciente paciente) {	
+	public String adicionar(Paciente paciente, Model model) {	
 		return "cadastros/cadastroPaciente";	
 	}
-
+	
+	@GetMapping("/listarPacientes")
+	public String listarPacientes(Model model) {
+		try {
+			model.addAttribute("paciente", pacienteService.listarPacientes());
+			
+		}
+		catch(Exception e){
+			System.out.println("Erro: " + e.getMessage());
+		}
+		return "listas/listaDePacientes";
+		
+	}
+	
 	@PostMapping("/salvar")
 	public String salvar(Paciente paciente) {
 		try {
-			pacienteService.salvar(paciente);
+			pacienteService.salvar(paciente);	
 		}
 		catch(Exception e) {
 			System.out.println("Erro: " + e.getMessage());
 		}
-		return "redirect:/";
+		return "cadastros/cadastroPaciente";
 	}
+	
 	
 	@GetMapping("/alterar/{idPac}")
 	public String editar(Paciente paciente, Model model) {
@@ -50,4 +64,7 @@ public class PacienteController {
 		}
 		return "cadastros/cadastroPaciente";
 	}
+	
+	
+
 }

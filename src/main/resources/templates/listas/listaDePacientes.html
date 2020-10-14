@@ -80,55 +80,41 @@
     
     
     <!-- Aqui vai o formulário de login de pacientes -->
+    	<!--  
+	    private int idPac;
+		private String nomePac;
+		private String cpfPac;
+		private String whatsappPac;
+		private String emailPac;
+		private String telPac;
+		private String idadePac;
+		private String generoPac;
+		private String senhaPac;
+		private List<Consulta> consultas;
+		-->
     	
-    	<h1>Modalidade de atendimento presencial escolhida</h1>
+    	<h1>Lista de pacientes</h1>
+    	<table>
+    		<tr>
+    			<th>Nome</th>
+    			<th>CPF</th>
+    			<th>Whats</th>
+    			<th>Email</th>
+    			<th>idade</th>
+    			<th>Genero</th>
+    		</tr>
+    		<tr th:each="paciente: ${paciente}">
+    			<td th:text="${paciente.nomePac}">Mostrar Nome</td>
+    			<td th:text="${paciente.cpfPac}">MostrarCpf</td>
+    			<td th:text="${paciente.whatsappPac}">Mostrar Whats</td>
+    			<td th:text="${paciente.emailPac}">Mostrar email</td>
+    			<td th:text="${paciente.idadePac}">Mostrar idade</td>
+    			<td th:text="${paciente.generoPac}">Mostrar Gênero</td>
+    		</tr>
+    	</table>
     	
-    	<label for="servicos">Digite o tipo de serviço que você busca:</label>
-    	<br>
-		<select name="" id="tipo_servico">
-		  <option value="selecione uma opção">Selecione uma opção</option>
-		  <option value="Acompanhamento Terapêutico">Acompanhamento terapêutico</option>
-		  <option value="Terapia Individual">Terapia individual</option>
-		  <option value="Terapia de casais">Terapia de casais</option>
-		  <option value="Avaliação psicológica">Avaliação psicológica</option>
-		  <option value="Orientação Profissional">Orientação Profissional</option>
-		</select>
-		<br>
-		<label for="">Já se consultou com um psicólogo antes?</label>
-		<br>
-		<select name="" id="">
-		  <option value="selecione uma opção">Selecione uma opção</option>
-		  <option value="Sim">Sim</option>
-		  <option value="Não">Não</option>
-		</select>
-		<br>
-		<label for="tema">Qual tema você gostaria de abordar com o profissional?</label>
-		<br>
-		<select name="" id="">
-		  <option value="selecione uma opção">Ansiedade</option>
-		  <option value="Acompanhamento Terapêutico">Depressão</option>
-		  <option value="Terapia Individual">Não</option>
-		  <option value="Não tenho certeza">Não tenho certeza</option>
-		</select>
-		<br>
-		<label for="">Em quanto tempo você deseja realizar sua consulta?</label>
-		<br>
-		<select name="" id="">
-		  <option value="urgente">Urgente</option>
-		  <option value="7 dias">daqui a 7 dias</option>
-		  <option value="15 dias">15 dias</option>
-		  <option value="1 mês">1 mês</option>
-		</select>
-		<br>
-		<label for="informacoes_adicionais">Informações Adicionais</label>
-		<br>
-        <textarea id="msg"></textarea>
-        <br>
-        <button>Encontrar Profissional</button>
-        <button>Cancelar</button>
-		
-		
-  
+    	
+    
     <!--JS -->
     <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
     <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>

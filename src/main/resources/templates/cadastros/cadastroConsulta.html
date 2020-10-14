@@ -79,49 +79,45 @@
     <br>
     
     
-    <!-- Aqui vai o formulário de cadastro de pacientes -->
+    <!-- Aqui vai o formulário de cadastro de consultas -->
+    <!-- Somente um terapeuta pode cadastrar consultas -->
+    <!-- Verificar como ele pode inserir o paciente nessa consulta -->
+    <!-- verificar como o terapeuta se insere nessa consulta -->
        
-    <h1>Cadastro de Pacientes</h1>
+    <h1>Cadastro de Consulta</h1>
     
-    <form th:action="@{salvar}" method="post" th:object="${paciente}">
+    <form th:action="@{salvar}" method="post" th:object="${consulta}">
     <br>
-    <input type="hidden" name="idPac" th:field="*{idPac}"/>
-    <label for="nomePac">Nome:</label>
-    <input type="text" name="nome" th:field="*{nomePac}"/>
+    <input type="hidden" name="idConsulta" th:field="*{idConsulta}"/>
     <br>
-    <label for="cpfPac">CPF:</label>
-    <input type="text" name="cpfPac" th:field="*{cpfPac}"/>
+   	<label class="col-sm-2 col-form-label">Nome Paciente</label>
+   	<div class="col-sm-10">
+	    <select th:field="*{paciente}" required class="form-control">
+	      <option th:each="paciente : ${paciente}" th:value="${paciente.idPac}" th:text="${paciente.nomePac}">
+	      </option>
+	    </select>
+    </div>
+    <label for="modalidade">Escolha a modalidade do atendimento</label>
+   	<select th:field="*{tipo}">
+   	  <option th:each="tipo: ${T(br.sc.senai.projetosa.model.enums.TipoAtendimento).values()}" th:value="${tipo}"
+   	  th:text="${tipo}"></option>
+ 	</select>
+    <label class="col-sm-2 col-form-label">Data da Consulta</label>
+    <div class="col-sm-10">
+    <input type="date" class="form-control" id="data" th:field="*{data}" required>
+    </div>    
     <br>
-    <label for="whatsappPac">Whatsapp</label>
-    <input type="text" name="whatsappPac" th:field="*{whatsappPac}"/>
+    <label for="emailPac">Horário:</label>
+    <input type="time" id="appt" name="appt"
+       min="08:00" max="19:00" th:field="*{hora}" required>
     <br>
-    <label for="emailPac">E-mail:</label>
-    <input type="text" name="emailPac" th:field="*{emailPac}"/>
-    <br>
-    <label for="telPac">Telefone:</label>
-    <input type="text" name="telPac" th:field="*{telPac}">
-    <br>
-    <label for="idadePac">Idade:</label>
-    <input type="text" name="idadePac" th:field="*{idadePac}">
-    <br>
-    <label for="generoPac">Gênero</label>
-    <input type="text" name="generoPac" th:field="*{generoPac}">
-     <br>
-    <label for="senhaPac">Senha</label>
-    <input type="text" name="senhaPac" th:field="*{senhaPac}">
-    <br>
-    <!--  gatilho do modal de confirmação de dados salvos! -->
     <input type="submit" name="salvar" value="salvar"/>
-    
     <button>Cancelar</button>
-     
     </form>
 
-     
     <!--JS -->
     <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
     <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>
     
-
 </body>
 </html>

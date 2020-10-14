@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.sc.senai.projetosa.model.entities.Consulta;
 import br.sc.senai.projetosa.model.entities.ProfissionalPsi;
 import br.sc.senai.projetosa.services.ProfissionalPsiService;
 
@@ -21,6 +22,20 @@ public class ProfissionalPsiController {
 	@GetMapping("/cadastrar")
 	public String ProfissionalPsi(ProfissionalPsi profissionalpsi) {
 		return "cadastros/cadastroProfissionalPsi";
+	}
+	
+	@GetMapping("/listarProfissionaisPsi")
+	public String listarProfissionaisPsi(Model model) {
+		try {
+			
+			model.addAttribute("profissionalPsi", profissionalPsiService.listarProfissionais());
+			
+		}
+		catch(Exception e) {
+			System.out.println("Erro: " + e.getMessage());
+		}
+		return "listas/listaDeProfissionais";
+		
 	}
 	
 	@PostMapping("/salvar")
@@ -47,4 +62,15 @@ public class ProfissionalPsiController {
 		}
 		return "cadastros/cadastroProfissionalPsi";
 	}
+	
+	@GetMapping("/modalidadeOnlineLista")
+	public String ModalidadeOnline(Consulta consulta) {
+		return "consultas/modalidadeOnlineListaProfissionais";
+	}
+	
+	@GetMapping("/modalidadePresencialLista")
+	public String ModalidadePresencial(Consulta consulta) {
+		return "consultas/modalidadePresencialListaProfissionais";
+	}
+	
 }

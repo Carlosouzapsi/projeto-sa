@@ -3,15 +3,17 @@ package br.sc.senai.projetosa.model.entities;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+
+
+
 
 @Entity
 @Table(name="profissional_psi")
@@ -28,9 +30,17 @@ public class ProfissionalPsi implements Serializable {
 	private String telPro;
 	private String generoPro;
 	private String senhaPro;
-	private List<Consulta> consultas;
-	private List<Paciente> pacientes;
+	private List<Paciente> Pacientes;
 	
+	@OneToMany
+	public List<Paciente> getPacientes() {
+		return Pacientes;
+	}
+
+	public void setPacientes(List<Paciente> pacientes) {
+		Pacientes = pacientes;
+	}
+
 	public ProfissionalPsi() {
 		
 	}
@@ -102,29 +112,9 @@ public class ProfissionalPsi implements Serializable {
 	public void setSenhaPro(String senhaPro) {
 		this.senhaPro = senhaPro;
 	}
-
-	@OneToMany
-	public List<Consulta> getConsultas() {
-		return consultas;
-	}
-
-	public void setConsultas(List<Consulta> consultas) {
-		this.consultas = consultas;
-	}
 	
-	@OneToMany
-	public List<Paciente> getPacientes() {
-		return pacientes;
-	}
-	
-
-	public void setPacientes(List<Paciente> pacientes) {
-		this.pacientes = pacientes;
-	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
-
 }

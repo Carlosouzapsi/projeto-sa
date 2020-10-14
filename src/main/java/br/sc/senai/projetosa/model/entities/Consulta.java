@@ -1,22 +1,15 @@
 package br.sc.senai.projetosa.model.entities;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import br.sc.senai.projetosa.model.enums.TipoAtendimento;
 
@@ -31,23 +24,26 @@ public class Consulta implements Serializable {
 	private Paciente paciente;
 	private ProfissionalPsi profissionalPsi;
 	private String endereco;
-	private String modalConsulta;
-	private Date data;
+	private String data;
+	private String hora;
 	
 	public Consulta() {
 		
 	}
 	
 	@ManyToOne
+	@JoinColumn(name="idPac", referencedColumnName = "idPac")
 	public Paciente getPaciente() {
 		return paciente;
 	}
+	
 	
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
 	}
 	
 	@ManyToOne
+	@JoinColumn(name="idPro", referencedColumnName = "idPro")
 	public ProfissionalPsi getProfissionalPsi() {
 		return profissionalPsi;
 	}
@@ -56,18 +52,25 @@ public class Consulta implements Serializable {
 		this.profissionalPsi = profissionalPsi;
 	}
 	
-	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="data", nullable = false)
-	public Date getData() {
+	public String getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
+	public void setData(String data) {
 		this.data = data;
 	}
+	
+	
+	public String getHora() {
+		return hora;
+	}
 
-	@Enumerated(EnumType.STRING)
-	@Column(name="tipo_atendimento", nullable = false)
+	public void setHora(String hora) {
+		this.hora = hora;
+	}
+
+	@Column(name="tipo_atendimento")
 	public TipoAtendimento getTipo() {
 		return tipo;
 	}
@@ -90,13 +93,6 @@ public class Consulta implements Serializable {
 	}
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
-	}
-	public String getModalConsulta() {
-		return modalConsulta;
-	}
-	
-	public void setModalConsulta(String modalConsulta) {
-		this.modalConsulta = modalConsulta;
 	}
 	
 	public static long getSerialversionuid() {

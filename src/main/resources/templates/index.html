@@ -50,8 +50,10 @@
                     		<div class="dropdown-menu" id="links-dropdown">
                     			<a th:href="@{/login/usuario}" class="dropdown-item">Logar</a>
                     			<a href="" class="dropdown-item">Meu perfil</a>
-                    			<a href="" class="dropdown-item">Meus agendamentos</a>
-                    			<a href="" class="dropdown-item">Sair</a>
+                    			<a href="" class="dropdown-item">Minhas Consultas - Paciente</a>
+                    			<a href="" class="dropdown-item">Minha Consultas - Profissional</a>
+                    			<a th:href="@{consulta/cadastrar}" class="dropdown-item">Cadastrar nova consulta</a>
+                    			<a href="" class="dropdown-item">Logout</a>
                     		</div>  
                         </li>
                         <li class="nav-item">
@@ -111,7 +113,7 @@
 
                   <h2>Está a procura de um Psícologo?</h5>
                   <p>Aqui na ASP você achará, dê uma olhada!</p>
-                  <a th:href="@{/escolhaModalidade}" method="get" class="main-btn">Procurar Psícologo</a>
+                  <a th:href="@{escolhaModalidade}" method="get" class="main-btn">Procurar Psícologo</a>
 
                 </div>
 

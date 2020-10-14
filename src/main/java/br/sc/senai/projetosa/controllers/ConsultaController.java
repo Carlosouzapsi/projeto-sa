@@ -2,36 +2,53 @@ package br.sc.senai.projetosa.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.sc.senai.projetosa.model.entities.Consulta;
 import br.sc.senai.projetosa.services.ConsultaService;
+import br.sc.senai.projetosa.services.PacienteService;
 
-@Controller //controller da consulta!
+@Controller 
+@RequestMapping("/consulta")
 public class ConsultaController {
 	
 	@Autowired
-	ConsultaService consultaService;
+	private PacienteService pacienteService;
 	
-	@GetMapping("/escolhaModalidade")
-	public String ModalidadeEscolha(Consulta consulta) {
-		
-		return "consultas/escolhaModalidade";
+	@Autowired
+	private ConsultaService consultaService;
+	
+	@GetMapping("/cadastrar")
+	public String adicionar(Consulta consulta, Model model) {
+		model.addAttribute("paciente", pacienteService.listarPacientes());
+		return "cadastros/cadastroConsulta";
 		
 	}
 	
-	@GetMapping("escolhaModalidade/modalidadeOnline")
-	public String ModalidadeOnline(Consulta consulta) {
-		
-		return "consultas/modalidadeOnlineLista";
-		
+	@PostMapping("/salvar")
+	public String salvar(Consulta consulta) {
+		try {
+			consultaService.salvar(consulta);
+		}
+		catch(Exception e) {
+			System.out.println("Erro: " + e.getMessage());
+		}
+		return "cadastros/cadastroConsulta";
 	}
 	
-	@GetMapping("escolhaModalidade/modalidadePresencial")
-	public String ModalidadePresencial(Consulta consulta) {
-		
-		return "consultas/modalidadePresencialLista";
-		
+	@GetMapping("/alterar/{idConsulta}")
+	public String editar(Consulta consulta, Model model) {
+		try {
+			consulta = consultaService.encontrarConsulta(consulta);
+			model.addAttribute("consulta", consulta);
+		}
+		catch(Exception e) {
+			System.out.println("Erro: " + e.getMessage());
+		}
+		return "cadastros/cadastroConsulta";
 	}
-
+	
 }

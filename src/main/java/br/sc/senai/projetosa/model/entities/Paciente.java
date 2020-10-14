@@ -3,15 +3,11 @@ package br.sc.senai.projetosa.model.entities;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -45,7 +41,8 @@ public class Paciente implements Serializable {
 	public void setIdPac(int idPac) {
 		this.idPac = idPac;
 	}
-
+	
+	
 	public String getNomePac() {
 		return nomePac;
 	}
@@ -110,12 +107,8 @@ public class Paciente implements Serializable {
 	public void setSenhaPac(String senhaPac) {
 		this.senhaPac = senhaPac;
 	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-		
-	@OneToMany
+	
+	@OneToMany(mappedBy="paciente")
 	public List<Consulta> getConsultas() {
 		return consultas;
 	}
@@ -123,5 +116,9 @@ public class Paciente implements Serializable {
 	public void setConsultas(List<Consulta> consultas) {
 		this.consultas = consultas;
 	}
-	
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+		
 }
