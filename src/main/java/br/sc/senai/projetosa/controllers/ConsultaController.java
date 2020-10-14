@@ -27,20 +27,7 @@ public class ConsultaController {
 		return "cadastros/cadastroConsulta";
 		
 	}
-	/*
-	@GetMapping("/listarPacientes")
-	public String listarPacientes(Model model) {
-		try {
-			model.addAttribute("paciente", pacienteService.listarPacientes());
-			
-		}
-		catch(Exception e){
-			System.out.println("Erro: " + e.getMessage());
-		}
-		return "listas/listaDePacientes";
-		
-	}
-	*/
+
 	@GetMapping("/listarConsultas")
 	public String listarConsultas(Model model) {
 		try {
