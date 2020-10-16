@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.sc.senai.projetosa.model.entities.Consulta;
+import br.sc.senai.projetosa.model.entities.Paciente;
 import br.sc.senai.projetosa.model.entities.ProfissionalPsi;
 import br.sc.senai.projetosa.services.ProfissionalPsiService;
 
@@ -63,14 +64,15 @@ public class ProfissionalPsiController {
 		return "cadastros/cadastroProfissionalPsi";
 	}
 	
-	@GetMapping("/modalidadeOnlineLista")
-	public String ModalidadeOnline(Consulta consulta) {
-		return "consultas/modalidadeOnlineListaProfissionais";
+	@GetMapping("/excluir/{idPro}")
+	public String excluirPaciente(ProfissionalPsi profissionalPsi) {
+		try {
+			profissionalPsiService.excluir(profissionalPsi);
+		}
+		catch(Exception e) {
+			System.out.println("Erro: " + e.getMessage());
+		}
+		return "redirect:/";
 	}
-	
-	@GetMapping("/modalidadePresencialLista")
-	public String ModalidadePresencial(Consulta consulta) {
-		return "consultas/modalidadePresencialListaProfissionais";
-	}
-	
+
 }

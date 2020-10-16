@@ -11,10 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
-
-
-
 @Entity
 @Table(name="profissional_psi")
 public class ProfissionalPsi implements Serializable {
@@ -113,7 +109,6 @@ public class ProfissionalPsi implements Serializable {
 		this.senhaPro = senhaPro;
 	}
 	
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}

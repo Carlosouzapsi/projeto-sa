@@ -65,6 +65,15 @@ public class PacienteController {
 		return "cadastros/cadastroPaciente";
 	}
 	
+	@GetMapping("/excluir/{idPac}")
+	public String excluirPaciente(Paciente paciente) {
+		try {
+			pacienteService.excluir(paciente);
+		}
+		catch(Exception e) {
+			System.out.println("Erro: " + e.getMessage());
+		}
+		return "redirect:/";
+	}
 	
-
 }

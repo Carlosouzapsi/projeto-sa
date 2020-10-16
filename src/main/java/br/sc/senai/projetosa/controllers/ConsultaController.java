@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.sc.senai.projetosa.model.entities.Consulta;
+import br.sc.senai.projetosa.model.entities.ProfissionalPsi;
 import br.sc.senai.projetosa.services.ConsultaService;
 import br.sc.senai.projetosa.services.PacienteService;
 
@@ -60,6 +61,17 @@ public class ConsultaController {
 			System.out.println("Erro: " + e.getMessage());
 		}
 		return "cadastros/cadastroConsulta";
+	}
+	
+	@GetMapping("/excluir/{idConsulta}")
+	public String excluirPaciente(Consulta consulta) {
+		try {
+			consultaService.excluir(consulta);
+		}
+		catch(Exception e) {
+			System.out.println("Erro: " + e.getMessage());
+		}
+		return "redirect:/";
 	}
 	
 }

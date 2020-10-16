@@ -39,8 +39,4 @@ public class ProfissionalPsiImpl implements ProfissionalPsiService {
 		return profissionalPsiRepository.findById(profissionalPsi.getIdPro()).orElse(null);
 	}
 	
-	
-	
-	
-
 }
