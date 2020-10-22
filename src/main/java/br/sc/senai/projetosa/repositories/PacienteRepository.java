@@ -5,7 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import br.sc.senai.projetosa.model.entities.Paciente;
 
 public interface PacienteRepository extends JpaRepository<Paciente, Integer>{
-	
-	Paciente findByEmail(String emailPac);
-		
+			
 }
