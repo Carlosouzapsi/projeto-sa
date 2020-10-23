@@ -19,7 +19,13 @@ public class LoginController {
 	public String loginError(ModelMap model) {
 		model.addAttribute("alerta","erro");
 		model.addAttribute("texto","Login ou senha incorretos, tente novamente!");
-		return "login";
+		return "login/login";
+	}
+	
+	@GetMapping({"/logout"})
+	public String logout() {
+		
+		return "index";
 	}
 	
 

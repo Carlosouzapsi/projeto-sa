@@ -81,12 +81,20 @@
     
     <!-- Aqui vai o formulário de login de pacientes -->
     
-    <form method="post">
-    	
-    	<h1>Login</h1>
-    	email: <input type="text" value="" name="">
+    
+    <form class="form-signin was-validated" method="post" th:action="@{/login}">
+    
+    <div th:if="${alerta != null}" th:class="${alerta == 'erro'} ? 'alert alert-danger' : 'alert alert-success'" role="alert">
+			  <h4 th:text="${titulo}" class="alert-heading">Credenciais...</h4>
+			  <p th:text="${texto}">Login ou senha incorretos...</p>
+			  <hr>
+			  <p class="mb-0"><small th:text="${subtexto}">Acesso permitido...</small></p>
+			</div>
+    	<label for="inputEmail">Email</label>
+    	<input type="email" id="inputEmail" value="" name="username" required autofocus>
     	<br>
-    	Senha: <input type="text" value="" name="">
+    	<label for="inputPassword">Senha</label>
+    	<input type="password" id="inputPassword" value="" name="password" required>
     	
     	<button type="submit">Entrar</button>
     	<br>

@@ -8,7 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,13 +23,22 @@ public class Paciente implements Serializable {
 	private String nomePac;
 	private String cpfPac;
 	private String whatsappPac;
-	private String emailPac;
 	private String telPac;
 	private String idadePac;
 	private String generoPac;
-	private String senhaPac;
 	private List<Consulta> consultas;
+	private Usuario usuario;
 	
+	@OneToOne
+	@JoinColumn(name="id_usuario")
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	public Paciente() {
 		
 	}
@@ -68,14 +79,6 @@ public class Paciente implements Serializable {
 		this.whatsappPac = whatsappPac;
 	}
 
-	public String getEmailPac() {
-		return emailPac;
-	}
-
-	public void setEmailPac(String emailPac) {
-		this.emailPac = emailPac;
-	}
-
 	public String getTelPac() {
 		return telPac;
 	}
@@ -99,15 +102,7 @@ public class Paciente implements Serializable {
 	public void setGeneroPac(String generoPac) {
 		this.generoPac = generoPac;
 	}
-	
-	public String getSenhaPac() {
-		return senhaPac;
-	}
 
-	public void setSenhaPac(String senhaPac) {
-		this.senhaPac = senhaPac;
-	}
-	
 	@OneToMany(mappedBy="paciente")
 	public List<Consulta> getConsultas() {
 		return consultas;

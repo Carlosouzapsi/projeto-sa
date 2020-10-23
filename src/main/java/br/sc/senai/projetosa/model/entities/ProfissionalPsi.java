@@ -8,7 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,12 +24,22 @@ public class ProfissionalPsi implements Serializable {
 	private String crp;
 	private String cpfPro;
 	private String whatsappPro;
-	private String emailPro;
 	private String telPro;
 	private String generoPro;
-	private String senhaPro;
 	private List<Paciente> Pacientes;
+	private Usuario usuario;
 	
+	
+	@OneToOne
+	@JoinColumn(name="id_usuario")
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	@OneToMany
 	public List<Paciente> getPacientes() {
 		return Pacientes;
@@ -82,12 +94,6 @@ public class ProfissionalPsi implements Serializable {
 		this.whatsappPro = whatsappPro;
 	}
 	
-	public String getEmailPro() {
-		return emailPro;
-	}
-	public void setEmailPro(String emailPro) {
-		this.emailPro = emailPro;
-	}
 	public String getTelPro() {
 		return telPro;
 	}
@@ -99,14 +105,6 @@ public class ProfissionalPsi implements Serializable {
 	}
 	public void setGeneroPro(String generoPro) {
 		this.generoPro = generoPro;
-	}
-	
-	public String getSenhaPro() {
-		return senhaPro;
-	}
-
-	public void setSenhaPro(String senhaPro) {
-		this.senhaPro = senhaPro;
 	}
 	
 	public static long getSerialversionuid() {
