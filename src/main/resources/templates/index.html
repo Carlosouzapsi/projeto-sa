@@ -49,6 +49,11 @@
                     		<form sec:authorize="!isAuthenticated()">
                             <a th:href="@{/login}" class="nav-link" id="home-menu">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logar</a>
                             </form>
+                            <form sec:authorize="isAuthenticated()">
+                            <a th:href="@{/login}" class="nav-link dropdown" id="home-menu" sec:authentication="name">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            Carlos
+                            </a>
+                            </form>
                         </li>
                     	 <li class="nav-item  dropdown">
                             <a href="" class="nav-link dropdown" data-toggle="dropdown" id="home-menu">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Navegação</a>

@@ -24,6 +24,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/bootstrap-4.5.2/js/**","/bootstrap-4.5.2/css/**","/css/**","fontawesome-5.14.0/css/**","fontawesome-5.14.0/js/**","fontawesome-5.14.0/less/**","fontawesome-5.14.0/metadata/**","fontawesome-5.14.0/scss/**","fontawesome-5.14.0/sprite/**","fontawesome-5.14.0/svgs/**","fontawesome-5.14.0/webfonts/**","/img/**","js/**").permitAll()
 			.antMatchers("/","/home").permitAll()
 			
+			//Acessos privados admin:
+			.antMatchers("/paciente/**").hasAuthority("ADMIN")
+			
+			//Acessos privados profissionais:
+			.antMatchers("/ProfissionalPsi/***").hasAuthority("PROFISSIONAL")
+			
 			
 			.anyRequest().authenticated()
 			.and()

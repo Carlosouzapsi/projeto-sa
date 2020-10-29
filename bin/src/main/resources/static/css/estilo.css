@@ -241,3 +241,158 @@ para poder definilos Ã  partir da minha prefÃªncia */
     color: #65DAF9;
     margin-right: 15px;
 }
+
+/* Tela de Login Estilos */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(img/image1.png);
+}
+
+.content {
+    background-color: white;
+    border-radius: 15px; 
+    width: 800px;
+    height: 50%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content::before {
+    content: "";
+    position: absolute;
+    background-color: cornflowerblue;
+    width: 43%;
+    height: 100%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+/* Títulos */
+
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    
+}
+
+.title-primary {
+    color: white;
+}
+
+.title-second {
+    color: cornflowerblue;
+}
+
+/* Descrições */
+
+.description {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 30px;
+
+}
+
+.description-primary {
+    color: white;
+}
+
+.description-second {
+    color: darkgray;
+}
+
+/* Botões */
+
+.btn {
+    border-radius: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 10px;
+    padding: 10px 50px;
+    cursor: pointer;
+    font-weight: bold;
+    align-self: center;
+    border: none;
+    margin-top: 1rem;
+}
+.btn-primary {
+    background-color: transparent;
+    border: 1px solid white;
+    transition: background-color .5s;
+}
+.btn-primary:hover {
+    background-color: white;
+    color: cornflowerblue;
+}
+.btn-second {
+    background-color: cornflowerblue;
+    border: 1px solid cornflowerblue;
+    transition: background-color .5s;
+}
+.btn-second:hover {
+    background-color: white;
+    border: 1px solid cornflowerblue;
+    color: cornflowerblue;
+}
+
+/* Colunas */
+
+.first-content {
+    display: flex;
+    position: relative;
+}
+
+.first-column {
+    text-align: center;
+    flex: 1 0 auto;
+    z-index: 10;
+}
+
+.second-column {
+    flex: 2 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+/* Formulário */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+}
+
+.form input {
+    height: 40px;
+    width: 100%;
+    border: none;
+    background-color: whitesmoke;
+}
+
+.label-input {
+    background-color: whitesmoke;
+    display: flex;
+    align-items: center;
+    margin: 8px;
+}
+
+.icon-modify {
+    color: grey ;
+    padding: 0 10px;
+}

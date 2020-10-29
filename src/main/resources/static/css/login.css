@@ -1,0 +1,154 @@
+/* tela de login */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(../img/login1.png);
+}
+
+.content {
+    background-color: white;
+    border-radius: 15px; 
+    width: 800px;
+    height: 50%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content::before {
+    content: "";
+    position: absolute;
+    background-color: #23238E;
+    width: 43%;
+    height: 100%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+/* Títulos */
+
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    
+}
+
+.title-primary {
+    color: white;
+}
+
+.title-second {
+    color: #23238E;
+}
+
+/* Descrições */
+
+.description {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 30px;
+
+}
+
+.description-primary {
+    color: white;
+}
+
+.description-second {
+    color: darkgray;
+}
+
+/* Botões */
+
+.btn {
+    border-radius: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 10px;
+    padding: 10px 50px;
+    cursor: pointer;
+    font-weight: bold;
+    align-self: center;
+    border: none;
+    margin-top: 1rem;
+}
+.btn-primary {
+    background-color: transparent;
+    border: 1px solid white;
+    transition: background-color .5s;
+}
+.btn-primary:hover {
+    background-color: white;
+    color: #23238E;
+}
+.btn-second {
+    background-color: #23238E;
+    border: 1px solid #23238E;
+    transition: background-color .5s;
+}
+.btn-second:hover {
+    background-color: white;
+    border: 1px solid #23238E;
+    color: #23238E;
+}
+
+/* Colunas */
+
+.first-content {
+    display: flex;
+    position: relative;
+}
+
+.first-column {
+    text-align: center;
+    flex: 1 0 auto;
+    z-index: 100;
+}
+
+.second-column {
+    flex: 2 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+/* Formulário */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+}
+
+.form input {
+    height: 40px;
+    width: 100%;
+    border: none;
+    background-color: whitesmoke;
+}
+
+.label-input {
+    background-color: whitesmoke;
+    display: flex;
+    align-items: center;
+    margin: 8px;
+}
+
+.icon-modify {
+    color: grey ;
+    padding: 0 10px;
+}
