@@ -18,10 +18,10 @@ import br.sc.senai.projetosa.model.enums.PerfilTipo;
 @Table(name = "usuarios", indexes = {@Index(name = "idx_usuario_email", columnList = "email")})
 public class Usuario extends AbstractEntity {	
 	
-	@Column(name = "email", unique = true, nullable = false)
+	@Column(name = "email")
 	private String email;
 	
-	@Column(name = "senha", nullable = false)
+	@Column(name = "senha")
 	private String senha;
 	
 	@ManyToMany
@@ -41,7 +41,8 @@ public class Usuario extends AbstractEntity {
 	public Usuario() {
 		super();
 	}
-
+	
+	
 	public Usuario(Long id) {
 		super.setId(id);
 	}
@@ -54,10 +55,6 @@ public class Usuario extends AbstractEntity {
 		this.perfis.add(new Perfil(tipo.getCod()));
 	}
 
-	public Usuario(String email) {
-		this.email = email;
-	}
-	
 	public String getEmail() {
 		return email;
 	}

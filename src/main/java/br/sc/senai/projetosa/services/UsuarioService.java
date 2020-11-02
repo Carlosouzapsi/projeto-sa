@@ -27,6 +27,8 @@ public class UsuarioService implements UserDetailsService {
 		return repository.findByEmail(email);
 		
 	}
+	
+	
 
 	@Override @Transactional(readOnly= true)
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

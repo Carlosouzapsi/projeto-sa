@@ -3,6 +3,7 @@ package br.sc.senai.projetosa.model.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,15 +30,17 @@ public class Paciente implements Serializable {
 	private List<Consulta> consultas;
 	private Usuario usuario;
 	
-	@OneToOne
-	@JoinColumn(name="id_usuario")
+	@OneToOne(cascade = CascadeType.REMOVE)
+	@JoinColumn(name = "id_usuario")
 	public Usuario getUsuario() {
 		return usuario;
 	}
-
+	
+	
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+	
 
 	public Paciente() {
 		
