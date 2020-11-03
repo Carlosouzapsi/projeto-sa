@@ -4,18 +4,17 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.sc.senai.projetosa.model.enums.PerfilTipo;
 
 @Entity
-@Table(name = "paciente")
+@Table(name = "paciente", indexes = {@Index(name = "idx_paciente_email", columnList = "email")})
 public class Paciente implements Serializable {
 	
 	private static final long serialVersionUID = 3624675698464100635L;
@@ -51,7 +50,8 @@ public class Paciente implements Serializable {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-
+	
+	@Column(name = "email", unique = true, nullable = false)
 	public String getEmail() {
 		return email;
 	}
