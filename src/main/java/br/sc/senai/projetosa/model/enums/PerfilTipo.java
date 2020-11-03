@@ -1,17 +1,17 @@
 package br.sc.senai.projetosa.model.enums;
 
 public enum PerfilTipo {
-	ADMIN(1, "ADMIN"), PSICOLOGO(2, "PROFISSIONAL"), PACIENTE(3, "PACIENTE");
+	ADMIN(0, "ADMIN"), PSICOLOGO(1, "PROFISSIONAL"), PACIENTE(2, "PACIENTE");
 	
-	private Long cod;
+	private int cod;
 	private String desc;
 
-	private PerfilTipo(long cod, String desc) {
+	private PerfilTipo(int cod, String desc) {
 		this.cod = cod;
 		this.desc = desc;
 	}
-
-	public long getCod() {
+	
+	public int getCod() {
 		return cod;
 	}
 

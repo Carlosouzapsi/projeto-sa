@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.sc.senai.projetosa.model.entities.Paciente;
-import br.sc.senai.projetosa.model.entities.Usuario;
 import br.sc.senai.projetosa.model.enums.PerfilTipo;
-import br.sc.senai.projetosa.repositories.UsuarioRepository;
 import br.sc.senai.projetosa.services.PacienteService;
 
 //request mapping padroniza isso:
@@ -26,9 +24,6 @@ public class PacienteController {
 	
 	@Autowired
 	private PacienteService pacienteService;
-	
-	@Autowired
-	private UsuarioRepository usuarioRepository;
 		
 	@GetMapping("/cadastrar")
 	public String adicionar(Paciente paciente, Model model) {	
@@ -49,13 +44,12 @@ public class PacienteController {
 	}
 	
 	@PostMapping("/salvar")
-	public String salvar(Paciente paciente, Usuario usuario) {
+	public String salvar(Paciente paciente) {
 		try {
-			/*String crypt = new BCryptPasswordEncoder().encode(usuario.getSenha());
-			usuario.setSenha(crypt); */
-			usuario.addPerfil(PerfilTipo.PACIENTE);
-			//pacienteService.salvar(paciente);
-			usuarioRepository.save(usuario);
+			String crypt = new BCryptPasswordEncoder().encode(paciente.getSenha());
+			paciente.setSenha(crypt);
+			paciente.setTipo(PerfilTipo.ADMIN);
+			pacienteService.salvar(paciente);
 		}
 		catch(Exception e) {
 			System.out.println("Erro: " + e.getMessage());

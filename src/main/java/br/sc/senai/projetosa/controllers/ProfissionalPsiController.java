@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import br.sc.senai.projetosa.model.entities.Consulta;
 import br.sc.senai.projetosa.model.entities.Paciente;
 import br.sc.senai.projetosa.model.entities.ProfissionalPsi;
+import br.sc.senai.projetosa.model.enums.PerfilTipo;
 import br.sc.senai.projetosa.services.ProfissionalPsiService;
 
 
@@ -42,6 +43,9 @@ public class ProfissionalPsiController {
 	@PostMapping("/salvar")
 	public String salvar(ProfissionalPsi profissionalPsi) {
 		try {
+			/* String crypt = new BCryptPasswordEncoder().encode(profissionalPsi.getSenha());
+			profissionalPsi.setSenha(crypt);*/
+			profissionalPsi.setTipo(PerfilTipo.PSICOLOGO);
 			profissionalPsiService.salvar(profissionalPsi);
 			
 		}

@@ -1,22 +1,22 @@
 package br.sc.senai.projetosa.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import br.sc.senai.projetosa.model.enums.PerfilTipo;
+import br.sc.senai.projetosa.services.PacienteService;
 
-import br.sc.senai.projetosa.services.UsuarioService;
-
-@Configuration
+@EnableGlobalMethodSecurity(prePostEnabled=true)
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-	
-	@Autowired
-	private UsuarioService service;
-	
+	/*
+	private static final String ADMIN = PerfilTipo.ADMIN.getDesc();
+    private static final String PSICOLOGO = PerfilTipo.PSICOLOGO.getDesc();
+    private static final String PACIENTE = PerfilTipo.PACIENTE.getDesc();
+	*/
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
@@ -25,15 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/","/home").permitAll()
 			.antMatchers("/profissionalOuPaciente", "/paciente/cadastrar", "/profissionalPsi/cadastrar").permitAll()
 			.antMatchers("/profissionalPsi/salvar", "/paciente/salvar").permitAll()
-			
-			//Acessos privados admin:
-			.antMatchers("/paciente/**").hasAuthority("ADMIN")
-			
-			//Acessos privados profissionais:
-			.antMatchers("/ProfissionalPsi/***").hasAuthority("PROFISSIONAL")
-			
-			//Acessos privados pacientes:
-			.antMatchers("/paciente/***").hasAuthority("PACIENTE")
+		
 			
 			
 			.anyRequest().authenticated()
@@ -49,13 +41,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 				 .exceptionHandling()
 				 .accessDeniedPage("/acesso-negado");
-		
-	}
-	
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
-		
-		auth.userDetailsService(service).passwordEncoder(new BCryptPasswordEncoder());
 		
 	}
 	

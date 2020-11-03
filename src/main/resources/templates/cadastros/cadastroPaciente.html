@@ -21,43 +21,41 @@
 		    	<p class="description description-third">Preencha com atenção
 		    	cada campo do formulário.</p>
 	    		<form class="form" th:action="@{salvar}" method="post" th:object="${paciente}">
-	    			<input type="hidden" name="idPac" th:value="${paciente.idPac}"/>
+	    			<input type="hidden" name="idPac" th:field="*{idPac}"/>
 	    			<label class="label-input" for="nomePac">
 	    				<i class="far fa-circle icon-modify"></i>
-	    				<input type="text" name="nome" placeholder="Nome Completo" th:value="${paciente.nomePac}"/>
+	    				<input type="text" name="nome" placeholder="Nome Completo" th:field="*{nomePac}"/>
 	    			</label>
 	    			<label class="label-input" for="cpfPac">
 	    				<i class="far fa-circle icon-modify"></i>
-	    				<input type="text" name="cpfPac" placeholder="CPF" th:field="${paciente.cpfPac}">
+	    				<input type="text" name="cpfPac" placeholder="CPF" th:field="*{cpfPac}">
 	    			</label>
 	    			<label class="label-input" for="whatsappPac">
 	    				<i class="far fa-circle icon-modify"></i>
-	    				<input type="text" name="whatsappPac" placeholder="WhatsApp" th:value="${paciente.whatsappPac}"/>
+	    				<input type="text" name="whatsappPac" placeholder="WhatsApp" th:field="*{whatsappPac}"/>
 	    			</label>
 	    			<label class="label-input" for="telPac">
 	    				<i class="far fa-circle icon-modify"></i>
-	    				<input type="text" name="telPac" placeholder="Telefone Fixo" th:value="${paciente.telPac}"/>
+	    				<input type="text" name="telPac" placeholder="Telefone Fixo" th:field="*{telPac}"/>
 	    			</label>
 	    			<label class="label-input" for="idadePac">
 	    				<i class="far fa-circle icon-modify"></i>
-	    				<input type="text" name="idadePac" placeholder="Idade" th:value="${paciente.idadePac}"/>
+	    				<input type="text" name="idadePac" placeholder="Idade" th:field="*{idadePac}"/>
 	    			</label>
 	    			<label class="label-input" for="generoPac">
 	    				<i class="far fa-circle icon-modify"></i>
-	    				<input type="text" name="generoPac" placeholder="Gênero" th:value="${paciente.generoPac}"/>
+	    				<input type="text" name="generoPac" placeholder="Gênero" th:field="*{generoPac}"/>
 	    			</label>
 	    			
 	    			<!-- Revisar email e senha em conjunto com o dev da parte de security -->
-	    			<input type="hidden" th:field="*{usuario.id}"/>
 		    		<label class="label-input" for="email">
 		    			<i class="far fa-circle icon-modify"></i>
-		    			<input type="email" class="form control" th:field="*{usuario.email}" placeholder="Email"/>
+		    			<input type="email" class="form control" th:field="*{email}" placeholder="Email"/>
 		    		</label>
 		    		<label class="label-input" for="senha">
 		    			<i class="far fa-circle icon-modify"></i>
-		    			<input class="form-control" type="password" id="senha" th:field="*{usuario.senha}" placeholder="Senha"/>
+		    			<input class="form-control" type="password" id="senha" th:field="*{senha}" placeholder="Senha"/>
 		    		</label>
-		    		
 	    			<button type="submit" class="btn btn-third" name="salvar">Efetuar cadastro</button>
 	    			<button class="btn btn-third">Cancelar</button>
 	    		</form>

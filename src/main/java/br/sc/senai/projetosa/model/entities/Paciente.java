@@ -2,17 +2,17 @@ package br.sc.senai.projetosa.model.entities;
 
 import java.io.Serializable;
 import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import br.sc.senai.projetosa.model.enums.PerfilTipo;
 
 @Entity
 @Table(name = "paciente")
@@ -28,19 +28,37 @@ public class Paciente implements Serializable {
 	private String idadePac;
 	private String generoPac;
 	private List<Consulta> consultas;
-	private Usuario usuario;
+	private String senha;
+	private String email;
+	private PerfilTipo tipo;
 	
-	@OneToOne(cascade = CascadeType.REMOVE)
-	@JoinColumn(name = "id_usuario")
-	public Usuario getUsuario() {
-		return usuario;
+	public Paciente(String email) {
+		this.email = email;
 	}
 	
-	
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public PerfilTipo getTipo() {
+		return tipo;
 	}
 	
+	public void setTipo(PerfilTipo tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public Paciente() {
 		
@@ -118,5 +136,5 @@ public class Paciente implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
+
 }

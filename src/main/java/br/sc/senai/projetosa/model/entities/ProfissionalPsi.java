@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import br.sc.senai.projetosa.model.enums.PerfilTipo;
+
 @Entity
 @Table(name="profissional_psi")
 public class ProfissionalPsi implements Serializable {
@@ -27,17 +29,33 @@ public class ProfissionalPsi implements Serializable {
 	private String telPro;
 	private String generoPro;
 	private List<Paciente> Pacientes;
-	private Usuario usuario;
+	private String senha;
+	private String email;
+	private PerfilTipo tipo;
 	
 	
-	@OneToOne
-	@JoinColumn(name="id_usuario")
-	public Usuario getUsuario() {
-		return usuario;
+	public PerfilTipo getTipo() {
+		return tipo;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setTipo(PerfilTipo tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	@OneToMany
