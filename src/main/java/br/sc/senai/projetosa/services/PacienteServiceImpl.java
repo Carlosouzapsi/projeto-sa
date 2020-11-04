@@ -48,7 +48,8 @@ public class PacienteServiceImpl implements PacienteService, UserDetailsService 
 	@Transactional(readOnly = true)
 	public Paciente buscarPorEmail(String email) {
 		
-		return pacienteRepository.findByEmail(email);
+		System.out.println(pacienteRepository.findByEmailLike(email));
+		return pacienteRepository.findByEmailLike(email);
 		
 	}
 

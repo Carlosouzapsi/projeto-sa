@@ -8,7 +8,9 @@ import br.sc.senai.projetosa.model.entities.Paciente;
 
 public interface PacienteRepository extends JpaRepository<Paciente, Integer>{
 	
-	@Query("select u from Paciente u where u.email like :email")
-	Paciente findByEmail(@Param("email") String email);
+	
+	//@Query("select u from Paciente u where u.email like :email")
+	Paciente findByEmailLike(@Param("email") String email);
+	
 			
 }
