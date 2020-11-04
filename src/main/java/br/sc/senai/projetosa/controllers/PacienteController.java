@@ -1,6 +1,8 @@
 package br.sc.senai.projetosa.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.sc.senai.projetosa.model.entities.Paciente;
 import br.sc.senai.projetosa.model.enums.PerfilTipo;
+import br.sc.senai.projetosa.repositories.PacienteRepository;
 import br.sc.senai.projetosa.services.PacienteService;
+import br.sc.senai.projetosa.services.PacienteServiceImpl;
 
 //request mapping padroniza isso:
 
@@ -21,6 +25,12 @@ import br.sc.senai.projetosa.services.PacienteService;
 @Controller
 @RequestMapping("/paciente")
 public class PacienteController {
+	
+	@Autowired
+	private PacienteServiceImpl service;
+	
+	@Autowired
+	private PacienteRepository repository;
 	
 	@Autowired
 	private PacienteService pacienteService;
@@ -76,6 +86,19 @@ public class PacienteController {
 			pacienteService.excluir(paciente);
 		}
 		catch(Exception e) {
+			System.out.println("Erro: " + e.getMessage());
+		}
+		return "redirect:/";
+	}
+	
+	@PostMapping("/logar")
+	public String Logar(Paciente paciente, Model model, @AuthenticationPrincipal User user) {
+		try {
+			System.out.println(paciente);
+			paciente = repository.findByEmailLike(paciente.getEmail());
+			paciente = service.buscarPorEmail(paciente.getEmail());
+			model.addAttribute("paciente", paciente);
+		} catch(Exception e) {
 			System.out.println("Erro: " + e.getMessage());
 		}
 		return "redirect:/";
