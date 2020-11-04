@@ -19,14 +19,13 @@ body {
 
 .content {
     background-color: white; 
-    width: 650px;
-    height: 35%;
+    width: 700px;
+    height: 100%;
     justify-content: space-between;
     align-items: center;
-    border-radius: 15px; 
 }
 
-/* TÃ­tulos */
+/* Títulos */
 
 .title {
     font-size: 28px;
@@ -38,7 +37,7 @@ body {
     color: #23238E;
 }
 
-/* DescriÃ§Ãµes */
+/* Descrições */
 
 .description {
     font-size: 13px;
@@ -48,11 +47,10 @@ body {
 }
 
 .description-third {
-    color: black;
-    padding: 10px 50px;
+    color: darkgray;
 }
 
-/* BotÃµes */
+/* Botões */
 
 .btn {
     border-radius: 15px;
@@ -91,4 +89,31 @@ body {
     flex-direction: column;
     align-items: center;
     
+}
+
+/* Formulário */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+}
+
+.form input {
+    height: 40px;
+    width: 100%;
+    border: none;
+    background-color: whitesmoke;
+}
+
+.label-input {
+    background-color: whitesmoke;
+    display: flex;
+    align-items: center;
+    margin: 8px;
+}
+
+.icon-modify {
+    color: grey ;
+    padding: 0 10px;
 }

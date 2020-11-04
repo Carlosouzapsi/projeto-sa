@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AcheUmPsi - Escolha de modalidade</title>
+    <title>AcheUmPsi - Lista de Consultas</title>
 
     <!--CSS-->
     <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
@@ -79,40 +79,45 @@
     <br>
     
     
-    <!-- Aqui vai a lista de profissional -->
+    <!-- Aqui vai o formulário de login de pacientes -->
+    	<!--  
+	    private int idPac;
+		private String nomePac;
+		private String cpfPac;
+		private String whatsappPac;
+		private String emailPac;
+		private String telPac;
+		private String idadePac;
+		private String generoPac;
+		private String senhaPac;
+		private List<Consulta> consultas;
+		-->
     	
-    	<h1>Lista de Profissionais</h1>
-    	
+    	<h1>Lista de Consultas</h1>
     	<div class="div-tabela">
-    		<table class="table">
-		    	<thead class="table">
+	    	<table class ="table">
+	    		<thead class="table">
 		    		<tr>
 		    			<th>Nome</th>
-		    			<th>CRP</th>
-		    			<th>Whatsapp</th>
-		    			<th>E-mail</th>
-		    			<th>Especialidade</th>
+		    			<th>Modalidade</th>
+		    			<th>Data da Consulta</th>
+		    			<th>Horário</th>
+		    			<th>Endereço</th>
 		    		</tr>
-		    	</thead>
-		    	<tbody>
-		    		<tr th:each="profissionalPsi: ${profissionalPsi}">
-			    		<td th:text="${profissionalPsi.nomePro}"></td>
-			    		<td th:text="${profissionalPsi.crp}"></td>
-			    		<td th:text="${profissionalPsi.email}"></td>
-			    		<td th:text="${profissionalPsi.whatsappPro}"></td>
-			    		<td>A fazer</td>
-		    		</tr>
-		    	</tbody>
-    		</table>
-    	
-    	
+	    		</thead>
+	    		<tbody>
+	    		<tr th:each="consulta: ${consulta}">
+	    			<td th:text="${#dates.format(consulta.data, 'dd/MM/yyyy')}"></td>
+	    			<td th:text="${paciente.cpfPac}"></td>
+	    			<td th:text="${paciente.whatsappPac}"></td>
+	    			<td th:text="${paciente.email}"></td>
+	    			<td th:text="${paciente.idadePac}"></td>
+	    			<td th:text="${paciente.generoPac}"></td>
+	    		</tr>
+	    		</tbody>
+	    	</table>
     	</div>
-    	
- 
-    	
-    	
-    	
-    
+    	 
     <!--JS -->
     <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
     <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>
