@@ -137,4 +137,15 @@ public class Paciente implements Serializable {
 		return serialVersionUID;
 	}
 
+	@Override
+	public String toString() {
+		return "Paciente [idPac=" + idPac + ", nomePac=" + nomePac + ", cpfPac=" + cpfPac + ", whatsappPac="
+				+ whatsappPac + ", telPac=" + telPac + ", idadePac=" + idadePac + ", generoPac=" + generoPac
+				+ ", consultas=" + consultas + ", senha=" + senha + ", email=" + email + ", tipo=" + tipo + "]";
+	}
+	
+	
+	
+	
+
 }

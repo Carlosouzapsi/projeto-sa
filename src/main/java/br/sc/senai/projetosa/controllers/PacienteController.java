@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,10 +29,7 @@ public class PacienteController {
 	
 	@Autowired
 	private PacienteServiceImpl service;
-	
-	@Autowired
-	private PacienteRepository repository;
-	
+		
 	@Autowired
 	private PacienteService pacienteService;
 		
@@ -92,12 +90,11 @@ public class PacienteController {
 	}
 	
 	@PostMapping("/logar")
-	public String Logar(Paciente paciente, Model model, @AuthenticationPrincipal User user) {
+	public String Logar(Paciente paciente, ModelMap model, @AuthenticationPrincipal User user) {
 		try {
-			System.out.println(paciente);
-			paciente = repository.findByEmailLike(paciente.getEmail());
-			paciente = service.buscarPorEmail(paciente.getEmail());
+			paciente = service.buscarPorEmail(user.getUsername());
 			model.addAttribute("paciente", paciente);
+			System.out.println(paciente);
 		} catch(Exception e) {
 			System.out.println("Erro: " + e.getMessage());
 		}
