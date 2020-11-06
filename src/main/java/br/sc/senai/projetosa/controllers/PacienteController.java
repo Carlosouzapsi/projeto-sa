@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.sc.senai.projetosa.model.entities.Paciente;
 import br.sc.senai.projetosa.model.enums.PerfilTipo;
-import br.sc.senai.projetosa.repositories.PacienteRepository;
 import br.sc.senai.projetosa.services.PacienteService;
 import br.sc.senai.projetosa.services.PacienteServiceImpl;
 
@@ -93,8 +92,11 @@ public class PacienteController {
 	public String Logar(Paciente paciente, ModelMap model, @AuthenticationPrincipal User user) {
 		try {
 			paciente = service.buscarPorEmail(user.getUsername());
-			model.addAttribute("paciente", paciente);
-			System.out.println(paciente);
+			if(paciente != null) {
+				model.addAttribute("paciente", paciente);
+				
+			}
+			
 		} catch(Exception e) {
 			System.out.println("Erro: " + e.getMessage());
 		}

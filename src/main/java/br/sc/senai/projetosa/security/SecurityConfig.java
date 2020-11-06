@@ -51,11 +51,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	  @Override
 	    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		  /*
 	        auth.inMemoryAuthentication()
 	        .passwordEncoder(passwordEncoder())
 	        .withUser("user@email.com").password(passwordEncoder().encode("123456")).roles("USER")
 	        .and()
 	        .withUser("admin").password(passwordEncoder().encode("123456")).roles("USER", "ADMIN");
+	      */
 	    }
 	 
 	    @Bean
