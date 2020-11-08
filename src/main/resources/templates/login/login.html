@@ -30,7 +30,7 @@
 		    	<h2 class="title title-second">Faça login na ASP</h2>
 		    	<p class="description description-second">Estamos no seu Aguardo!</p>
 		    
-			    <form class="form-signin was-validated" method="post" th:action="@{paciente/logar}">
+			    <form class="form-signin was-validated" method="post" th:action="@{/login}">
 				 	<label class="label-input" for="inputEmail">
 					 	<i class="far fa-envelope icon-modify"></i>
 					 	<input type="email" id="username" placeholder="E-mail" name="username" required autofocus>
@@ -41,6 +41,11 @@
 				    </label>
 				    <button type="submit" class="btn btn-second">Login</button>
 			    </form>
+			    <br>
+			    <div th:if="${alerta != null}" th:class="${alerta == 'erro'} ? 'alert alert-danger' : 'alert alert-success'" role="alert">
+				   <h4 th:text="${titulo}" class="alert-heading">Credenciais...</h4>
+				   <p th:text="${texto}">Login ou senha incorretos...</p>
+				</div>	
 			</div>
 		</div>
 	</div>
@@ -48,12 +53,7 @@
 	    
 	   
 	    <!--  
-	    <div th:if="${alerta != null}" th:class="${alerta == 'erro'} ? 'alert alert-danger' : 'alert alert-success'" role="alert">
-				  <h4 th:text="${titulo}" class="alert-heading">Credenciais...</h4>
-				  <p th:text="${texto}">Login ou senha incorretos...</p>
-				  <hr>
-				  <p class="mb-0"><small th:text="${subtexto}">Acesso permitido...</small></p>
-				</div>
+	    
 	    	<label for="inputEmail">Email</label>
 	    	<input type="email" id="inputEmail" value="" name="username" required autofocus>
 	    	<br>

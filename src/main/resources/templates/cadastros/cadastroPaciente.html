@@ -1,70 +1,70 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"lang="pt-br">
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AcheUmPsi - Cadastro de Pacientes</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AcheUmPsi - Cadastro de Pacientes</title>
 
-    <!--CSS-->
-    <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
-    <!-- <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/fontawesome.min.css}"> -->
-    <link rel="stylesheet" th:href="@{/css/cadastroPaciente.css}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<!--CSS-->
+<link rel="stylesheet"
+	th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
+<!-- <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/fontawesome.min.css}"> -->
+<link rel="stylesheet" th:href="@{/css/cadastroPaciente.css}">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+	integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+	crossorigin="anonymous">
 </head>
 <body>
-    
-    <div class="container">
-    	<div class="content third-content">
-    		<div class="third-column">
-		    	<h2 class="title title-third">Cadastro de Paciente</h2>
-		    	<p class="description description-third">Preencha com atenção
-		    	cada campo do formulário.</p>
-	    		<form class="form" th:action="@{salvar}" method="post" th:object="${paciente}">
-	    			<input type="hidden" name="idPac" th:field="*{idPac}"/>
-	    			<label class="label-input" for="nomePac">
-	    				<i class="far fa-circle icon-modify"></i>
-	    				<input type="text" name="nome" placeholder="Nome Completo" th:field="*{nomePac}"/>
-	    			</label>
-	    			<label class="label-input" for="cpfPac">
-	    				<i class="far fa-circle icon-modify"></i>
-	    				<input type="text" name="cpfPac" placeholder="CPF" th:field="*{cpfPac}">
-	    			</label>
-	    			<label class="label-input" for="whatsappPac">
-	    				<i class="far fa-circle icon-modify"></i>
-	    				<input type="text" name="whatsappPac" placeholder="WhatsApp" th:field="*{whatsappPac}"/>
-	    			</label>
-	    			<label class="label-input" for="telPac">
-	    				<i class="far fa-circle icon-modify"></i>
-	    				<input type="text" name="telPac" placeholder="Telefone Fixo" th:field="*{telPac}"/>
-	    			</label>
-	    			<label class="label-input" for="idadePac">
-	    				<i class="far fa-circle icon-modify"></i>
-	    				<input type="text" name="idadePac" placeholder="Idade" th:field="*{idadePac}"/>
-	    			</label>
-	    			<label class="label-input" for="generoPac">
-	    				<i class="far fa-circle icon-modify"></i>
-	    				<input type="text" name="generoPac" placeholder="Gênero" th:field="*{generoPac}"/>
-	    			</label>
-	    			
-	    			<!-- Revisar email e senha em conjunto com o dev da parte de security -->
-		    		<label class="label-input" for="email">
-		    			<i class="far fa-circle icon-modify"></i>
-		    			<input type="email" class="form control" th:field="*{email}" placeholder="Email"/>
-		    		</label>
-		    		<label class="label-input" for="senha">
-		    			<i class="far fa-circle icon-modify"></i>
-		    			<input class="form-control" type="password" id="senha" th:field="*{senha}" placeholder="Senha"/>
-		    		</label>
-	    			<button type="submit" class="btn btn-third" name="salvar">Efetuar cadastro</button>
-	    			<button class="btn btn-third">Cancelar</button>
-	    		</form>
-    		</div>
-       	</div>
+
+	<div class="container">
+		<div class="content third-content">
+			<div class="third-column">
+				<h2 class="title title-third">Cadastro de Paciente</h2>
+				<p class="description description-third">Preencha com atenção
+					cada campo do formulário.</p>
+				<form class="form" th:action="@{salvar}" method="post"
+					th:object="${paciente}">
+					<input type="hidden" name="idPac" th:field="*{idPac}" /> <label
+						class="label-input" for="nomePac"> <i
+						class="far fa-circle icon-modify"></i> <input type="text"
+						name="nome" placeholder="Nome Completo" th:field="*{nomePac}" />
+					</label> <label class="label-input" for="cpfPac"> <i
+						class="far fa-circle icon-modify"></i> <input type="text"
+						name="cpfPac" placeholder="CPF" th:field="*{cpfPac}">
+					</label> <label class="label-input" for="whatsappPac"> <i
+						class="far fa-circle icon-modify"></i> <input type="text"
+						name="whatsappPac" placeholder="WhatsApp"
+						th:field="*{whatsappPac}" />
+					</label> <label class="label-input" for="telPac"> <i
+						class="far fa-circle icon-modify"></i> <input type="text"
+						name="telPac" placeholder="Telefone Fixo" th:field="*{telPac}" />
+					</label> <label class="label-input" for="idadePac"> <i
+						class="far fa-circle icon-modify"></i> <input type="text"
+						name="idadePac" placeholder="Idade" th:field="*{idadePac}" />
+					</label> <label class="label-input" for="generoPac"> <i
+						class="far fa-circle icon-modify"></i> <input type="text"
+						name="generoPac" placeholder="Gênero" th:field="*{generoPac}" />
+					</label>
+
+					<!-- Revisar email e senha em conjunto com o dev da parte de security -->
+					<label class="label-input" for="email"> <i
+						class="far fa-circle icon-modify"></i> <input type="email"
+						class="form control" th:field="*{email}" placeholder="Email" />
+					</label> <label class="label-input" for="senha"> <i
+						class="far fa-circle icon-modify"></i> <input class="form-control"
+						type="password" id="senha" th:field="*{senha}" placeholder="Senha" />
+					</label>
+					<button type="submit" class="btn btn-third" name="salvar">Efetuar
+						cadastro</button>
+					<button class="btn btn-third">Cancelar</button>
+				</form>
+			</div>
+		</div>
 	</div>
-    	
-    	
-    <!-- Aqui vai o formulário de cadastro de pacientes
+
+
+	<!-- Aqui vai o formulário de cadastro de pacientes
        
     <h1>Cadastro de Pacientes</h1>
     
@@ -97,13 +97,13 @@
     </form>
     
     -->
-    
-    
-     
-    <!--JS -->
-    <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
-    <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>
-    
+
+
+
+	<!--JS -->
+	<script th:src="@{/js/jquery-3.5.1.min.js}"></script>
+	<script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>
+
 
 </body>
 </html>
