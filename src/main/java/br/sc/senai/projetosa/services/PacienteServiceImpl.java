@@ -63,6 +63,4 @@ public class PacienteServiceImpl implements PacienteService, UserDetailsService 
 		
 	}
 	
-
-	
 }
