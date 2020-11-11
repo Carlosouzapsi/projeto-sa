@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,8 +16,8 @@
 	crossorigin="anonymous">
 </head>
 <body>
-
 	<div class="container">
+		<div th:replace="fragments/alert"></div>
 		<div class="content third-content">
 			<div class="third-column">
 				<h2 class="title title-third">Cadastro de Paciente</h2>
@@ -58,51 +58,46 @@
 					<button type="submit" class="btn btn-third" name="salvar">Efetuar
 						cadastro</button>
 					<button class="btn btn-third">Cancelar</button>
+					
 				</form>
 			</div>
 		</div>
 	</div>
 
-
-	<!-- Aqui vai o formulário de cadastro de pacientes
-       
-    <h1>Cadastro de Pacientes</h1>
-    
-    <form th:action="@{salvar}" method="post" th:object="${paciente}">
-    <br>
-    <input type="hidden" name="idPac" th:field="*{idPac}"/>
-    <label for="nomePac">Nome:</label>
-    <input type="text" name="nome" th:field="*{nomePac}"/>
-    <br>
-    <label for="cpfPac">CPF:</label>
-    <input type="text" name="cpfPac" th:field="*{cpfPac}"/>
-    <br>
-    <label for="whatsappPac">Whatsapp</label>
-    <input type="text" name="whatsappPac" th:field="*{whatsappPac}"/>
-    <br>
-    <label for="telPac">Telefone:</label>
-    <input type="text" name="telPac" th:field="*{telPac}">
-    <br>
-    <label for="idadePac">Idade:</label>
-    <input type="text" name="idadePac" th:field="*{idadePac}">
-    <br>
-    <label for="generoPac">Gênero</label>
-    <input type="text" name="generoPac" th:field="*{generoPac}">
-     <br>
-    
-    <input type="submit" name="salvar" value="salvar"/>
-    
-    <button>Cancelar</button>
-     
-    </form>
-    
-    -->
-
-
-
 	<!--JS -->
 	<script th:src="@{/js/jquery-3.5.1.min.js}"></script>
 	<script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>
+	
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="/webjars/jquery/jquery.min.js"></script>
+	<script src="/webjars/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	    
+		var url = '';
+		
+		$('button[id*="btn_"]').click(function() {	
+			url = "http://localhost:8080/" + $(this).attr('id').split("_")[1];
+		})
+		
+		$('#ok_confirm').click(function(){
+			document.location.href = url;
+		});
+		
+		$(function() {
+			$('[data-toggle="popover"]').popover();
+		});
+		
+		$(document).ready(function(){
+		    $(".navbar-toggle").click(function(){
+		        $(".sidebar").toggleClass("sidebar-open");
+		    })
+		});
+
+	</script>
 
 
 </body>

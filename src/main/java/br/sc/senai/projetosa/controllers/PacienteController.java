@@ -51,12 +51,13 @@ public class PacienteController {
 	}
 	
 	@PostMapping("/salvar")
-	public String salvar(Paciente paciente) {
+	public String salvar(Paciente paciente, ModelMap model) {
 		try {
 			String crypt = new BCryptPasswordEncoder().encode(paciente.getSenha());
 			paciente.setSenha(crypt);
 			paciente.setTipo(PerfilTipo.ADMIN);
 			pacienteService.salvar(paciente);
+			model.addAttribute("success", "Dados salvos com sucesso!");
 		}
 		catch(Exception e) {
 			System.out.println("Erro: " + e.getMessage());
