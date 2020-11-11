@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.sc.senai.projetosa.model.entities.Consulta;
-import br.sc.senai.projetosa.model.entities.ProfissionalPsi;
 import br.sc.senai.projetosa.services.ConsultaService;
 import br.sc.senai.projetosa.services.PacienteService;
 

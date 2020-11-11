@@ -94,27 +94,31 @@
 		-->
     	
     	<h1>Lista de pacientes</h1>
-    	<table>
-    		<tr>
-    			<th>Nome</th>
-    			<th>CPF</th>
-    			<th>Whats</th>
-    			<th>Email</th>
-    			<th>idade</th>
-    			<th>Genero</th>
-    		</tr>
-    		<tr th:each="paciente: ${paciente}">
-    			<td th:text="${paciente.nomePac}">Mostrar Nome</td>
-    			<td th:text="${paciente.cpfPac}">MostrarCpf</td>
-    			<td th:text="${paciente.whatsappPac}">Mostrar Whats</td>
-    			<td th:text="${paciente.emailPac}">Mostrar email</td>
-    			<td th:text="${paciente.idadePac}">Mostrar idade</td>
-    			<td th:text="${paciente.generoPac}">Mostrar Gênero</td>
-    		</tr>
-    	</table>
-    	
-    	
-    
+    	<div class="div-tabela">
+	    	<table class ="table">
+	    		<thead class="table">
+		    		<tr>
+		    			<th>Nome</th>
+		    			<th>CPF</th>
+		    			<th>Whats</th>
+		    			<th>Email</th>
+		    			<th>idade</th>
+		    			<th>Genero</th>
+		    		</tr>
+	    		</thead>
+	    		<tbody>
+	    		<tr th:each="paciente: ${paciente}">
+	    			<td th:text="${paciente.nomePac}"></td>
+	    			<td th:text="${paciente.cpfPac}"></td>
+	    			<td th:text="${paciente.whatsappPac}"></td>
+	    			<td th:text="${paciente.email}"></td>
+	    			<td th:text="${paciente.idadePac}"></td>
+	    			<td th:text="${paciente.generoPac}"></td>
+	    		</tr>
+	    		</tbody>
+	    	</table>
+    	</div>
+    	 
     <!--JS -->
     <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
     <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>

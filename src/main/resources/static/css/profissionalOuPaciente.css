@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(../img/image1.png);
+}
+
+.content {
+    background-color: white; 
+    width: 650px;
+    height: 35%;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px; 
+}
+
+/* Títulos */
+
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    
+}
+
+.title-third {
+    color: #23238E;
+}
+
+/* Descrições */
+
+.description {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 30px;
+
+}
+
+.description-third {
+    color: black;
+    padding: 10px 50px;
+}
+
+/* Botões */
+
+.btn {
+    border-radius: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 10px;
+    padding: 10px 50px;
+    cursor: pointer;
+    font-weight: bold;
+    align-self: center;
+    border: none;
+    margin-top: 1rem;
+}
+
+.btn-third {
+    background-color: #23238E;
+    border: 1px solid #23238E;
+    transition: background-color .5s;
+}
+.btn-third:hover {
+    background-color: white;
+    border: 1px solid #23238E;
+    color: #23238E;
+}
+
+/* Colunas */
+
+.third-content {
+    display: flex;
+    position: relative;
+}
+
+.third-column {
+    flex: 2 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
