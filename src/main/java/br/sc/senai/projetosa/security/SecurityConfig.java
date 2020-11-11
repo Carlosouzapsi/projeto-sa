@@ -2,6 +2,7 @@
 
 package br.sc.senai.projetosa.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -11,9 +12,14 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import br.sc.senai.projetosa.services.PacienteServiceImpl;
+
 @EnableGlobalMethodSecurity(prePostEnabled=true)
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+	
+	@Autowired 
+	PacienteServiceImpl pacienteServiceImpl;
 	/*
 	private static final String ADMIN = PerfilTipo.ADMIN.getDesc();
     private static final String PSICOLOGO = PerfilTipo.PSICOLOGO.getDesc();
@@ -51,12 +57,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	  @Override
 	    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		  
-	        auth.inMemoryAuthentication()
-	        .passwordEncoder(passwordEncoder())
-	        .withUser("user@email.com").password(passwordEncoder().encode("123456")).roles("USER")
-	        .and()
-	        .withUser("admin").password(passwordEncoder().encode("123456")).roles("USER", "ADMIN");
+		  System.out.println("USUARIO: " + pacienteServiceImpl);
+		  auth
+		  	.userDetailsService(pacienteServiceImpl)
+		  	.passwordEncoder(new BCryptPasswordEncoder());
 	      
 	    }
 	 
