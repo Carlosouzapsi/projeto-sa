@@ -1,14 +1,14 @@
 package br.sc.senai.projetosa.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.sc.senai.projetosa.model.entities.Consulta;
-import br.sc.senai.projetosa.model.entities.Paciente;
 import br.sc.senai.projetosa.model.entities.ProfissionalPsi;
 import br.sc.senai.projetosa.model.enums.PerfilTipo;
 import br.sc.senai.projetosa.services.ProfissionalPsiService;
@@ -41,19 +41,21 @@ public class ProfissionalPsiController {
 	}
 	
 	@PostMapping("/salvar")
-	public String salvar(ProfissionalPsi profissionalPsi) {
+	public String salvar(ProfissionalPsi profissionalPsi, ModelMap model) {
 		try {
-			/* String crypt = new BCryptPasswordEncoder().encode(profissionalPsi.getSenha());
-			profissionalPsi.setSenha(crypt);*/
+			String crypt = new BCryptPasswordEncoder().encode(profissionalPsi.getSenha());
+			profissionalPsi.setSenha(crypt);
 			profissionalPsi.setTipo(PerfilTipo.PSICOLOGO);
 			profissionalPsiService.salvar(profissionalPsi);
+			model.addAttribute("success", "Dados salvos com sucesso!");
 			
 		}
 		catch(Exception e){
 			System.out.println("Erro: " + e.getMessage());
+			model.addAttribute("fail", "Algo deu errado, tente novamente!");
 			
 		}
-		return "redirect:/";
+		return "cadastros/cadastroProfissionalPsi";
 	}
 	
 	@GetMapping("/alterar/{idPro}")

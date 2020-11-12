@@ -86,6 +86,8 @@
        
     <h1>Cadastro de Consulta</h1>
     
+	<div th:replace="fragments/alert"></div>
+	    
     <form th:action="@{salvar}" method="post" th:object="${consulta}">
     <br>
     <input type="hidden" name="idConsulta" th:field="*{idConsulta}"/>

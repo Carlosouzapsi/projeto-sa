@@ -61,6 +61,7 @@ public class PacienteController {
 		}
 		catch(Exception e) {
 			System.out.println("Erro: " + e.getMessage());
+			model.addAttribute("fail", "Algo deu errado, tente novamente!");
 		}
 		return "cadastros/cadastroPaciente";
 	}
@@ -89,6 +90,8 @@ public class PacienteController {
 		return "redirect:/";
 	}
 	
+	//Verificar se é possível excluir esse componente do controller.
+	/*
 	@PostMapping("/logar")
 	public String Logar(Paciente paciente, ModelMap model, @AuthenticationPrincipal User user) {
 		try {
@@ -103,5 +106,6 @@ public class PacienteController {
 		}
 		return "redirect:/";
 	}
+*/
 	
 }

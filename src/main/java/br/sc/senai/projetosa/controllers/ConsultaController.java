@@ -3,6 +3,7 @@ package br.sc.senai.projetosa.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,12 +41,14 @@ public class ConsultaController {
 	}
 	
 	@PostMapping("/salvar")
-	public String salvar(Consulta consulta) {
+	public String salvar(Consulta consulta, ModelMap model) {
 		try {
 			consultaService.salvar(consulta);
+			model.addAttribute("success", "Dados salvos com sucesso!");
 		}
 		catch(Exception e) {
 			System.out.println("Erro: " + e.getMessage());
+			model.addAttribute("fail", "Algo deu errado, tente novamente!");
 		}
 		return "cadastros/cadastroConsulta";
 	}

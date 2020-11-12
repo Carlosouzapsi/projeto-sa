@@ -11,9 +11,10 @@
     <link rel="stylesheet" th:href="@{/css/cadastroProfissional.css}">
 </head>
 <body>
+	<div th:replace="fragments/alert"></div>
 	<div class="container">
         <div class="content third-content">
-
+			
             <!-- Segunda Coluna -->
             <div class="third-column">
                 <h2 class="title title-third">Cadastro de Profissional</h2>
@@ -47,11 +48,11 @@
                     </label>
                     <label class= "label-input" for="">
                         <i class="far fa-circle icon-modify"></i>
-                        <input type="email" placeholder="E-mail">
+                        <input type="email" placeholder="E-mail" th:field="*{email}">
                     </label>
                     <label class= "label-input" for="">
                         <i class="far fa-circle icon-modify"></i>
-                        <input type="password" placeholder="Senha">
+                        <input type="password" placeholder="Senha" th:field="*{senha}">
                     </label>
                     <button class="btn btn-third">Efetuar Cadastro</button>
                     <button class="btn btn-third">Cancelar</button>
