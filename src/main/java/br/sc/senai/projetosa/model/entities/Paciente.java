@@ -26,7 +26,7 @@ public class Paciente implements Serializable {
 	private String cpfPac;
 	private String whatsappPac;
 	private String telPac;
-	private String idadePac;
+	private String dataNasc;
 	private String generoPac;
 	private List<Consulta> consultas;
 	private String senha;
@@ -86,6 +86,7 @@ public class Paciente implements Serializable {
 		this.nomePac = nomePac;
 	}
 	
+	@NotBlank(message = "informe o número de cpf.")
 	@Column(name="cpf_paciente", nullable = false, unique = true)
 	public String getCpfPac() {
 		return cpfPac;
@@ -111,12 +112,12 @@ public class Paciente implements Serializable {
 		this.telPac = telPac;
 	}
 
-	public String getIdadePac() {
-		return idadePac;
+	public String getDataNasc() {
+		return dataNasc;
 	}
 
-	public void setIdadePac(String idadePac) {
-		this.idadePac = idadePac;
+	public void setDataNasc(String dataNasc) {
+		this.dataNasc = dataNasc;
 	}
 
 	public String getGeneroPac() {
@@ -143,12 +144,8 @@ public class Paciente implements Serializable {
 	@Override
 	public String toString() {
 		return "Paciente [idPac=" + idPac + ", nomePac=" + nomePac + ", cpfPac=" + cpfPac + ", whatsappPac="
-				+ whatsappPac + ", telPac=" + telPac + ", idadePac=" + idadePac + ", generoPac=" + generoPac
+				+ whatsappPac + ", telPac=" + telPac + ", dataNasc=" + dataNasc + ", generoPac=" + generoPac
 				+ ", consultas=" + consultas + ", senha=" + senha + ", email=" + email + ", tipo=" + tipo + "]";
 	}
 	
-	
-	
-	
-
 }

@@ -44,7 +44,7 @@
 			    <br>
 			    <div th:if="${alerta != null}" th:class="${alerta == 'erro'} ? 'alert alert-danger' : 'alert alert-success'" role="alert">
 				   <h4 th:text="${titulo}" class="alert-heading">Credenciais...</h4>
-				   <p th:text="${texto}">Login ou senha incorretos...</p>
+                   <p th:text="${texto}" class="description description-third"> Login ou senha incorretos... </p>
 				</div>	
 			</div>
 		</div>

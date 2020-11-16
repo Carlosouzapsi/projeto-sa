@@ -71,6 +71,12 @@ body {
     color: darkgray;
 }
 
+.description-third{
+	
+	color: darkgray;
+	
+}
+
 /* Botões */
 
 .btn {
@@ -81,7 +87,60 @@ body {
     padding: 10px 50px;
     cursor: pointer;
     font-weight: bold;
+    border: none;
+    margin-top: 1rem;
+}
+.btn-primary {
+    background-color: transparent;
+    border: 1px solid white;
+    transition: background-color .5s;
     align-self: center;
+}
+.btn-primary:hover {
+    background-color: white;
+    color: #23238E;
+}
+.btn-second {
+    background-color: #23238E;
+    border: 1px solid #23238E;
+    transition: background-color .5s;
+    align-self: center;
+}
+.btn-second:hover {
+    background-color: white;
+    border: 1px solid #23238E;
+    color: #23238E;
+}
+dps tira o align-self
+do btn second
+é no login
+vamo ver
+sauasuusha
+ou da errado
+ou da bom
+me mostra o resultado
+ue
+essa n é a tela de login
+é o formulario
+me mostra da tela de login
+asuhhuas
+SAYGASGYAGSYYAS
+AIAI
+AGR EU RI
+poha nada|?
+era pelo menos ter bugado algo
+velho
+algum motivo
+esse botão tá estagnado
+.btn {
+    border-radius: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 10px;
+    padding: 10px 50px;
+    cursor: pointer;
+    align-self: center;
+    font-weight: bold;
     border: none;
     margin-top: 1rem;
 }
