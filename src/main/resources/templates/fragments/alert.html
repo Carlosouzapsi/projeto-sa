@@ -6,7 +6,7 @@
 <body>
 	<div th:if="${success} != null">
 		<div class="alert alert-success alert-dismissible fade show" role="alert">
-		<i class="oi oi check"></i>
+		<i class="oi oi-check"></i>
 		<span>
 			<strong th:text="${success}"></strong>
 		</span>
@@ -27,6 +27,12 @@
 		</button>
 		</div>
 	</div>
+	
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 </body>
 </html>
