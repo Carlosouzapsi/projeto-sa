@@ -2,6 +2,7 @@ package br.sc.senai.projetosa.model.entities;
 
 import java.io.Serializable;
 import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Index;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import br.sc.senai.projetosa.model.enums.PerfilTipo;
 
@@ -74,7 +76,8 @@ public class Paciente implements Serializable {
 		this.idPac = idPac;
 	}
 	
-	
+	@NotBlank(message = "informe um nome.")
+	@Column(nullable = false, length = 60)
 	public String getNomePac() {
 		return nomePac;
 	}
@@ -83,7 +86,7 @@ public class Paciente implements Serializable {
 		this.nomePac = nomePac;
 	}
 	
-	@Column(name="cpf_paciente", nullable = false)
+	@Column(name="cpf_paciente", nullable = false, unique = true)
 	public String getCpfPac() {
 		return cpfPac;
 	}
