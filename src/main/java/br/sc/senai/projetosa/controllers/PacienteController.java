@@ -1,12 +1,13 @@
 package br.sc.senai.projetosa.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,8 +52,15 @@ public class PacienteController {
 	}
 	
 	@PostMapping("/salvar")
-	public String salvar(Paciente paciente, ModelMap model) {
+	public String salvar(@Valid Paciente paciente, BindingResult result, ModelMap model) {
 		try {
+			
+			if(result.hasErrors()) {
+				
+				return "/cadastros/cadastroPaciente";
+				
+			}
+			
 			String crypt = new BCryptPasswordEncoder().encode(paciente.getSenha());
 			paciente.setSenha(crypt);
 			paciente.setTipo(PerfilTipo.ADMIN);

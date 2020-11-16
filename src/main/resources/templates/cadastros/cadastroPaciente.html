@@ -25,6 +25,7 @@
 					cada campo do formulário.</p>
 				<form class="form" th:action="@{salvar}" method="post"
 					th:object="${paciente}">
+					<div th:replace="fragments/validacao :: validacao"></div>
 					<input type="hidden" name="idPac" th:field="*{idPac}" /> <label
 						class="label-input" for="nomePac"> <i
 						class="far fa-circle icon-modify"></i> <input type="text"
