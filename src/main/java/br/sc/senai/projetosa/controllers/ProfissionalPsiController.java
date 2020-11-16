@@ -1,10 +1,13 @@
 package br.sc.senai.projetosa.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,8 +44,14 @@ public class ProfissionalPsiController {
 	}
 	
 	@PostMapping("/salvar")
-	public String salvar(ProfissionalPsi profissionalPsi, ModelMap model) {
+	public String salvar(@Valid ProfissionalPsi profissionalPsi, BindingResult result, ModelMap model) {
 		try {
+			
+			if(result.hasErrors()) {
+				
+				return "/cadastros/cadastroProfissionalPsi";
+				
+			}
 			String crypt = new BCryptPasswordEncoder().encode(profissionalPsi.getSenha());
 			profissionalPsi.setSenha(crypt);
 			profissionalPsi.setTipo(PerfilTipo.PSICOLOGO);
