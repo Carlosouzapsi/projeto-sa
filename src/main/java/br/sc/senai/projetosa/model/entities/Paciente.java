@@ -86,7 +86,7 @@ public class Paciente implements Serializable {
 		this.nomePac = nomePac;
 	}
 	
-	@NotBlank(message = "informe o número de cpf.")
+	@NotBlank(message = "O número de CPF é obrigatório.")
 	@Column(name="cpf_paciente", nullable = false, unique = true)
 	public String getCpfPac() {
 		return cpfPac;
@@ -95,7 +95,9 @@ public class Paciente implements Serializable {
 	public void setCpfPac(String cpfPac) {
 		this.cpfPac = cpfPac;
 	}
-
+	
+	@NotBlank(message = "O número de whatsapp é obrigatório.")
+	@Column(name="whatsapp_paciente", nullable = false)
 	public String getWhatsappPac() {
 		return whatsappPac;
 	}
@@ -111,7 +113,8 @@ public class Paciente implements Serializable {
 	public void setTelPac(String telPac) {
 		this.telPac = telPac;
 	}
-
+	
+	@NotBlank(message = "Insira uma data de nascimento.")
 	public String getDataNasc() {
 		return dataNasc;
 	}

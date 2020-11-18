@@ -17,19 +17,10 @@ import br.sc.senai.projetosa.model.enums.PerfilTipo;
 import br.sc.senai.projetosa.services.PacienteService;
 import br.sc.senai.projetosa.services.PacienteServiceImpl;
 
-//request mapping padroniza isso:
-
-//http://localhost:8080/paciente/cadastrar
-//http://localhost:8080/paciente/alterar
-//http://localhost:8080/paciente/perfil
-
 @Controller
 @RequestMapping("/paciente")
 public class PacienteController {
-	
-	@Autowired
-	private PacienteServiceImpl service;
-		
+			
 	@Autowired
 	private PacienteService pacienteService;
 		
@@ -97,23 +88,5 @@ public class PacienteController {
 		}
 		return "redirect:/";
 	}
-	
-	//Verificar se é possível excluir esse componente do controller.
-	/*
-	@PostMapping("/logar")
-	public String Logar(Paciente paciente, ModelMap model, @AuthenticationPrincipal User user) {
-		try {
-			paciente = service.buscarPorEmail(user.getUsername());
-			if(paciente != null) {
-				model.addAttribute("paciente", paciente);
-				
-			}
-			
-		} catch(Exception e) {
-			System.out.println("Erro: " + e.getMessage());
-		}
-		return "redirect:/";
-	}
-*/
-	
+		
 }

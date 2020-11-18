@@ -42,10 +42,10 @@
 						name="telPac" placeholder="Telefone Fixo" th:field="*{telPac}" onkeypress="$(this).mask('(00) 0000-0000')" />
 					</label> <label class="label-input" for="dataNasc"> <i
 						class="far fa-circle icon-modify"> Data de Nascimento</i> <input type="date"
-						name="dataNasc" placeholder="Data de Nascimento" th:field="*{dataNasc}" onkeypress="$(this).mask('00/00/0000')"/>
-					</label> <label class="label" for="generoPac">
-					<i
-						class="far fa-circle icon-modify"></i> 
+						name="dataNasc" placeholder="Data de Nascimento" th:field="*{dataNasc}"/>
+					</label> 
+					<label class="label-input" for="generoPac">
+					 
 						<select th:field="*{generoPac}">
 							<option th:value="'O'">Selecione uma Opção de Gênero</option>
     						<option th:value="'M'" th:text="Masculino"></option>
@@ -59,7 +59,7 @@
 						class="form control" th:field="*{email}" placeholder="Email" />
 					</label> <label class="label-input" for="senha"> <i
 						class="far fa-circle icon-modify"></i> <input class="form-control"
-						type="password" id="senha" th:field="*{senha}" placeholder="Senha" maxlength="8"/>
+						type="password" id="senha" th:field="*{senha}" placeholder="Senha" minlength="6" maxlength="8"/>
 					</label>
 					<button type="submit" class="btn btn-third" name="salvar">Efetuar
 						cadastro</button>

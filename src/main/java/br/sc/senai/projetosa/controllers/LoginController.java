@@ -13,12 +13,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import br.sc.senai.projetosa.model.entities.Paciente;
 import br.sc.senai.projetosa.model.entities.ProfissionalPsi;
 import br.sc.senai.projetosa.services.PacienteServiceImpl;
+import br.sc.senai.projetosa.services.ProfissionalPsiImpl;
 
 @Controller
 public class LoginController {
 	
 	@Autowired
-	private PacienteServiceImpl service;
+	private PacienteServiceImpl pacienteService;
+	
+	@Autowired 
+	private ProfissionalPsiImpl profissionalPsiService;
 		
 	// Abrir página de login
 	@GetMapping({"/login"})
@@ -55,17 +59,16 @@ public class LoginController {
 		
 	}
 	
-	/*Pretendo realocar a funcionalidade de login para este controller. Visto que possuo 3 perfis diferentes de usuários 
-	que podem logar na aplicação */
-	
 	/*
-	@PostMapping("/logar")
+	@PostMapping("/login")
 	public String logar(Paciente paciente, ProfissionalPsi profissionalPsi, ModelMap model, @AuthenticationPrincipal User user) {
 		try {
-			//Fazer um If aqui dentro para buscar o profissional de psicologia
-			paciente = service.buscarPorEmail(user.getUsername());
-			if(paciente != null) {
+		
+			paciente = pacienteService.buscarPorEmail(user.getUsername());
+			profissionalPsi = profissionalPsiService.buscarPorEmail(user.getUsername());
+			if(paciente != null || profissionalPsi != null) {
 				model.addAttribute("paciente", paciente);
+				model.addAttribute("profissionalPsi", profissionalPsi);
 			}
 			
 		}catch(Exception e) {
@@ -75,5 +78,6 @@ public class LoginController {
 		
 	}
 	*/
+
 	
 }

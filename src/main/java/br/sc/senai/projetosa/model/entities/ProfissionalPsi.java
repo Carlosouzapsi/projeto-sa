@@ -8,10 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import br.sc.senai.projetosa.model.enums.PerfilTipo;
 
@@ -81,6 +80,8 @@ public class ProfissionalPsi implements Serializable {
 		this.idPro = idPro;
 	}
 	
+	@NotBlank(message="Informe o nome.")
+	@Column(name = "nome_pro", nullable = false, unique = true)
 	public String getNomePro() {
 		return nomePro;
 	}
@@ -89,6 +90,7 @@ public class ProfissionalPsi implements Serializable {
 		this.nomePro = nomePro;
 	}
 	
+	@NotBlank(message="O número de CRP é obrigatório.")
 	@Column(name="crp", nullable = false)
 	public String getCrp() {
 		return crp;
@@ -98,6 +100,7 @@ public class ProfissionalPsi implements Serializable {
 		this.crp = crp;
 	}
 	
+	@NotBlank(message="O número de CPF é obrigatório.")
 	@Column(name="cpf_profissional", nullable = false)
 	public String getCpfPro() {
 		return cpfPro;
@@ -105,6 +108,9 @@ public class ProfissionalPsi implements Serializable {
 	public void setCpfPro(String cpfPro) {
 		this.cpfPro = cpfPro;
 	}
+	
+	@NotBlank(message="O número de whatsapp")
+	@Column(name="whatsapp", nullable = false)
 	public String getWhatsappPro() {
 		return whatsappPro;
 	}
@@ -118,6 +124,7 @@ public class ProfissionalPsi implements Serializable {
 	public void setTelPro(String telPro) {
 		this.telPro = telPro;
 	}
+	
 	public String getGeneroPro() {
 		return generoPro;
 	}
