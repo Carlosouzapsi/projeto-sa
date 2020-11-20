@@ -100,19 +100,36 @@
 			    		<td th:text="${profissionalPsi.crp}"></td>
 			    		<td th:text="${profissionalPsi.email}"></td>
 			    		<td th:text="${profissionalPsi.whatsappPro}"></td>
+			    		<td colspan="2">
+			    			<a class="btn btn-info btn-sm" href="" role="button">
+			    				<span class="oi oi-brush" title="editar" aria-hidden="true">Editar</span>
+			    			</a>
+			    			<button th:id="${ 'btn_profissionalPsi/excluir/' + id}" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">
+			    				<span class="oi oi-circle-x" title="Exclusão desabilitada">Excluir</span>
+			    			</button>
+			    		</td>
 			    		<!--  <td>A fazer</td> -->
 		    		</tr>
 		    	</tbody>
     		</table>
-    	
-    	
+
     	</div>
     	
+    	<div th:replace="fragments/modal :: modal"></div>
+    	
+    	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="/webjars/jquery/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+	<script src="/webjars/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	
+    	
+    	
+    	
  
-    	
-    	
-    	
-    
     <!--JS -->
     <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
     <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>

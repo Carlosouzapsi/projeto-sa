@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -80,7 +81,7 @@ public class ProfissionalPsiController {
 	}
 	
 	@GetMapping("/excluir/{idPro}")
-	public String excluirProfissionalPsi(ProfissionalPsi profissionalPsi) {
+	public String excluirProfissionalPsi(@PathVariable("id") Long id, ProfissionalPsi profissionalPsi, ModelMap model) {
 		try {
 			profissionalPsiService.excluir(profissionalPsi);
 		}
