@@ -80,7 +80,7 @@ public class ProfissionalPsiController {
 	}
 	
 	@GetMapping("/excluir/{idPro}")
-	public String excluirPaciente(ProfissionalPsi profissionalPsi) {
+	public String excluirProfissionalPsi(ProfissionalPsi profissionalPsi) {
 		try {
 			profissionalPsiService.excluir(profissionalPsi);
 		}
