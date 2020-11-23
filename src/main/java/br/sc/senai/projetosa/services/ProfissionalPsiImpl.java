@@ -32,7 +32,6 @@ public class ProfissionalPsiImpl implements ProfissionalPsiService, UserDetailsS
 	}
 
 	@Override
-	@Transactional
 	public void excluir(ProfissionalPsi profissionalPsi) {
 		profissionalPsiRepository.delete(profissionalPsi);
 	}

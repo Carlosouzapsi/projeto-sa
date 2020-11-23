@@ -31,7 +31,7 @@ public class ProfissionalPsiController {
 	}
 	
 	@GetMapping("/listarProfissionaisPsi")
-	public String listarProfissionaisPsi(Model model) {
+	public String listarProfissionaisPsi(ModelMap model) {
 		try {
 			
 			model.addAttribute("profissionalPsi", profissionalPsiService.listarProfissionais());
@@ -69,7 +69,7 @@ public class ProfissionalPsiController {
 	}
 	
 	@GetMapping("/alterar/{idPro}")
-	public String editar(ProfissionalPsi profissionalPsi, Model model) {
+	public String editar(@PathVariable("idPro") Long idPro, ProfissionalPsi profissionalPsi, Model model) {
 		try {
 			profissionalPsi = profissionalPsiService.encontrarProfissionalPsi(profissionalPsi);
 			model.addAttribute("profissionalPsi", profissionalPsi);
@@ -81,14 +81,14 @@ public class ProfissionalPsiController {
 	}
 	
 	@GetMapping("/excluir/{idPro}")
-	public String excluirProfissionalPsi(@PathVariable("id") Long id, ProfissionalPsi profissionalPsi, ModelMap model) {
+	public String excluirProfissionalPsi(@PathVariable("idPro") Long idPro, ProfissionalPsi profissionalPsi, ModelMap model) {
 		try {
 			profissionalPsiService.excluir(profissionalPsi);
 		}
 		catch(Exception e) {
 			System.out.println("Erro: " + e.getMessage());
 		}
-		return "redirect:/";
+		return listarProfissionaisPsi(model);
 	}
 
 }
