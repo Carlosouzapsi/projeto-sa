@@ -66,14 +66,14 @@ public class ConsultaController {
 	}
 	
 	@GetMapping("/excluir/{idConsulta}")
-	public String excluirPaciente(Consulta consulta) {
+	public String excluirPaciente(Consulta consulta, Model model) {
 		try {
 			consultaService.excluir(consulta);
 		}
 		catch(Exception e) {
 			System.out.println("Erro: " + e.getMessage());
 		}
-		return "redirect:/";
+		return listarConsultas(model);
 	}
 	
 }
