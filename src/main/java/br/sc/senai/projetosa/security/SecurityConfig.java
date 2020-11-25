@@ -4,6 +4,7 @@ package br.sc.senai.projetosa.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -65,12 +66,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
-		
+		/*
 		  auth
 			.userDetailsService(pacienteServiceImpl)
 			.passwordEncoder(new BCryptPasswordEncoder());
-		 
-		/*
+		  auth
+			.userDetailsService(profissionalPsiServiceImpl)
+			.passwordEncoder(new BCryptPasswordEncoder());
+		*/
+		 /*  
 		ProfissionalPsi profissional = profissionalPsiServiceImpl.buscarPorEmail(
 				SecurityContextHolder.getContext().getAuthentication().getName());
 
@@ -85,13 +89,36 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			auth
 			.userDetailsService(pacienteServiceImpl)
 			.passwordEncoder(new BCryptPasswordEncoder());*/
+		
+		auth
+			.authenticationProvider(profissionalPsiProvider())
+			.authenticationProvider(pacienteProvider());
 	}
+	
 	
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
+	
+	@Bean
+	public DaoAuthenticationProvider pacienteProvider() {
+		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+		authProvider.setUserDetailsService(pacienteServiceImpl);
+		authProvider.setPasswordEncoder(passwordEncoder());
 		
-
+		return authProvider;
+	}
+	
+	@Bean
+	public DaoAuthenticationProvider profissionalPsiProvider() {
+		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+		authProvider.setUserDetailsService(profissionalPsiServiceImpl);
+		authProvider.setPasswordEncoder(passwordEncoder());
+		
+		return authProvider;
+	}
+	
+	
 	}
 

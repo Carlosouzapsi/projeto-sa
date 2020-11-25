@@ -3,6 +3,7 @@ package br.sc.senai.projetosa.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -52,11 +53,15 @@ public class ProfissionalPsiImpl implements ProfissionalPsiService, UserDetailsS
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		ProfissionalPsi profissionalPsi = buscarPorEmail(username);
-		return new User(
-				profissionalPsi.getEmail(),
-				profissionalPsi.getSenha(),
-				AuthorityUtils.createAuthorityList(profissionalPsi.getTipo().getDesc())
-				);
+		
+		if(profissionalPsi == null) throw new UsernameNotFoundException("profissional não encontrado");
+			
+			return new User(
+					profissionalPsi.getEmail(),
+					profissionalPsi.getSenha(),
+					AuthorityUtils.createAuthorityList(profissionalPsi.getTipo().getDesc())
+					);
+	
 	}
 
 }

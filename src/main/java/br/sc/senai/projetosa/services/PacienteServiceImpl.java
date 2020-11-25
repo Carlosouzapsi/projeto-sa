@@ -3,6 +3,7 @@ package br.sc.senai.projetosa.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -55,11 +56,13 @@ public class PacienteServiceImpl implements PacienteService, UserDetailsService 
 	@Override @Transactional(readOnly=true)
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Paciente paciente = buscarPorEmail(username);
-		return new User(
-				paciente.getEmail(),
-				paciente.getSenha(),
-				AuthorityUtils.createAuthorityList(paciente.getTipo().getDesc())
-				);	
+		if(paciente == null) throw new UsernameNotFoundException("profissional não encontrado");
+			
+			return new User(
+					paciente.getEmail(),
+					paciente.getSenha(),
+					AuthorityUtils.createAuthorityList(paciente.getTipo().getDesc())
+					);
 		
 	}
 	
