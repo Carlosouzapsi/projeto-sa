@@ -79,14 +79,14 @@ public class PacienteController {
 	}
 	
 	@GetMapping("/excluir/{idPac}")
-	public String excluirPaciente(Paciente paciente) {
+	public String excluirPaciente(Paciente paciente, Model model) {
 		try {
 			pacienteService.excluir(paciente);
 		}
 		catch(Exception e) {
 			System.out.println("Erro: " + e.getMessage());
 		}
-		return "redirect:/";
+		return listarPacientes(model);
 	}
 		
 }

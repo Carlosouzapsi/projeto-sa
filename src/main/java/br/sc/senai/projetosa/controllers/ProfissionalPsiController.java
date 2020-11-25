@@ -26,7 +26,7 @@ public class ProfissionalPsiController {
 	ProfissionalPsiService profissionalPsiService;
 	
 	@GetMapping("/cadastrar")
-	public String ProfissionalPsi(ProfissionalPsi profissionalpsi) {
+	public String cadastrar(ProfissionalPsi profissionalpsi) {
 		return "cadastros/cadastroProfissionalPsi";
 	}
 	
@@ -69,7 +69,7 @@ public class ProfissionalPsiController {
 	}
 	
 	@GetMapping("/alterar/{idPro}")
-	public String editar(@PathVariable("idPro") Long idPro, ProfissionalPsi profissionalPsi, Model model) {
+	public String editar(ProfissionalPsi profissionalPsi, Model model) {
 		try {
 			profissionalPsi = profissionalPsiService.encontrarProfissionalPsi(profissionalPsi);
 			model.addAttribute("profissionalPsi", profissionalPsi);

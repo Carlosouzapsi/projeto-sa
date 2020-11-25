@@ -8,6 +8,7 @@
     <!--CSS-->
     <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/css/cadastroProfissional.css}">
+    <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.css}">
 </head>
 <body>
 	<div class="container">
@@ -18,7 +19,7 @@
                 <h2 class="title title-third">Cadastro de Profissional</h2>
                 <p class="description description-third">Pedimos pra preencher com atenção cada lacuna.</p>
 
-                <form class="form" th:action="@{salvar}" method="post" th:object="${profissionalPsi}">
+                <form class="form" th:action="@{/profissionalPsi/salvar}" method="post" th:object="${profissionalPsi}">
                 <div th:replace="fragments/validacao :: validacao"></div>
                 <div th:replace="fragments/alert"></div>
                 <input type="hidden" name="idPro" th:field="*{idPro}"/>
