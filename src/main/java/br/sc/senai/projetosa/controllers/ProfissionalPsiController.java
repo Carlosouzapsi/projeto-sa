@@ -3,6 +3,7 @@ package br.sc.senai.projetosa.controllers;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -60,9 +61,9 @@ public class ProfissionalPsiController {
 			model.addAttribute("success", "Dados salvos com sucesso!");
 			
 		}
-		catch(Exception e){
-			System.out.println("Erro: " + e.getMessage());
-			model.addAttribute("fail", "Algo deu errado, tente novamente!");
+		catch(DataIntegrityViolationException ex){
+			System.out.println("Erro: " + ex.getMessage());
+			model.addAttribute("fail", "Cadastro não realizado, email já existente!");
 			
 		}
 		return "cadastros/cadastroProfissionalPsi";
