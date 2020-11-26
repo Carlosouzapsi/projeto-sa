@@ -54,7 +54,7 @@ public class PacienteController {
 			
 			String crypt = new BCryptPasswordEncoder().encode(paciente.getSenha());
 			paciente.setSenha(crypt);
-			paciente.setTipo(PerfilTipo.ADMIN);
+			paciente.setTipo(PerfilTipo.PACIENTE);
 			pacienteService.salvar(paciente);
 			model.addAttribute("success", "Dados salvos com sucesso!");
 		}

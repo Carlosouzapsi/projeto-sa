@@ -55,29 +55,11 @@ public class LoginController {
 		model.addAttribute("error","Acesso Negado");
 		model.addAttribute("message", "Você não tem permissão para acesso a esta área ou ação");
 		
-		return "error";
+		return "fragments/error";
 		
 	}
 	
-	/*
-	@PostMapping("/login")
-	public String logar(Paciente paciente, ProfissionalPsi profissionalPsi, ModelMap model, @AuthenticationPrincipal User user) {
-		try {
-		
-			paciente = pacienteService.buscarPorEmail(user.getUsername());
-			profissionalPsi = profissionalPsiService.buscarPorEmail(user.getUsername());
-			if(paciente != null || profissionalPsi != null) {
-				model.addAttribute("paciente", paciente);
-				model.addAttribute("profissionalPsi", profissionalPsi);
-			}
-			
-		}catch(Exception e) {
-			System.out.println("Erro: " + e.getMessage());
-		}
-		return "redirect:/";
-		
-	}
-	*/
+	
 
 	
 }
