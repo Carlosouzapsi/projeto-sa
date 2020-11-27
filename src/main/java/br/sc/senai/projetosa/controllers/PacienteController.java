@@ -77,6 +77,23 @@ public class PacienteController {
 		}
 		return "cadastros/cadastroPaciente";
 	}
+	/*
+	@GetMapping("/alterarPerfil/{idPac}")
+	public String editarPerfil(Paciente paciente, Model model) {
+		try {
+			
+			paciente = pacienteService.encontrarPaciente(paciente);
+			model.addAttribute("paciente", paciente);
+		
+		}
+		catch(Exception e) {
+			System.out.println("Erro: " + e.getMessage());
+		}
+		
+		return "cadastros/cadastroPaciente";
+		
+	}
+	*/
 	
 	@GetMapping("/excluir/{idPac}")
 	public String excluirPaciente(Paciente paciente, Model model) {

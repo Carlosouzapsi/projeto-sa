@@ -10,12 +10,10 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import br.sc.senai.projetosa.model.entities.Paciente;
-import br.sc.senai.projetosa.model.entities.ProfissionalPsi;
+import br.sc.senai.projetosa.model.enums.PerfilTipo;
 import br.sc.senai.projetosa.services.PacienteServiceImpl;
 import br.sc.senai.projetosa.services.ProfissionalPsiImpl;
 
@@ -28,11 +26,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	ProfissionalPsiImpl profissionalPsiServiceImpl;
-	/*
+	
 	private static final String ADMIN = PerfilTipo.ADMIN.getDesc();
     private static final String PSICOLOGO = PerfilTipo.PSICOLOGO.getDesc();
     private static final String PACIENTE = PerfilTipo.PACIENTE.getDesc();
-	 */
+
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -44,13 +42,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/profissionalPsi/salvar", "/paciente/salvar").permitAll()
 		
 		//Acessos privados admin
-		.antMatchers("/paciente/**", "profissionalPsi/**", "/consulta/**").hasAuthority("ADMIN")
+		.antMatchers("/paciente/**", "profissionalPsi/**", "/consulta/**").hasAnyAuthority("ADMIN", "PROFISSIONAL", "PACIENTE")
 		
 		//Acesso privados paciente
 		.antMatchers("/profissionalPsi/listarProfissionalPsi").hasAuthority("PACIENTE")
 		
 		//Acesso privados profissionalPsi
-		.antMatchers("/consulta/cadastrar").hasAuthority("PROFISSONAL")
+		.antMatchers("/consulta/cadastrar").hasAuthority("PROFISSIONAL")
 
 
 

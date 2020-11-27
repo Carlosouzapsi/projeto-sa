@@ -57,13 +57,15 @@
                     	 <li class="nav-item  dropdown">
                             <a href="" class="nav-link dropdown" data-toggle="dropdown" id="home-menu">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Navegação</a>
                     		<div class="dropdown-menu" id="links-dropdown">
-                    			<a href="" class="dropdown-item">Meu perfil</a>
-                    			<a href="" class="dropdown-item">Minhas Consultas - Paciente</a>
-                    			<a href="" class="dropdown-item">Minha Consultas - Profissional</a>
-                    			<a th:href="@{paciente/listarPacientes}" class="dropdown-item">Lista de Pacientes - Admin</a>
-                    			<a th:href="@{profissionalPsi/listarProfissionaisPsi}" class="dropdown-item">Lista de Profissionais - Admin</a>
-                    			<a th:href="@{consulta/listarConsultas}" class="dropdown-item">Lista de Consultas - Admin</a>
-                    			<a th:href="@{consulta/cadastrar}" class="dropdown-item">Cadastrar nova consulta</a>
+                    			<a href="" sec:authorize="hasAuthority('ADMIN')" class="dropdown-item">Meu perfil - Admin</a>
+                    			<a th:href="@{/profissionalPsi/alterarPerfil/} + ${idPro}" sec:authorize="hasAuthority('PROFISSIONAL')"class="dropdown-item">Meu perfil - Psicólogo</a>
+                    			<a href="" class="dropdown-item" sec:authorize="hasAuthority('PACIENTE')">Meu perfil - Paciente</a>
+                    			<a href="" class="dropdown-item" sec:authorize="hasAuthority('PACIENTE')">Minhas Consultas - Paciente</a>
+                    			<a href="" class="dropdown-item" sec:authorize="hasAuthority('PROFISSIONAL')">Minha Consultas - Psicólogo</a>
+                    			<a th:href="@{paciente/listarPacientes}" class="dropdown-item" sec:authorize="hasAuthority('ADMIN')">Lista de Pacientes - Admin</a>
+                    			<a th:href="@{profissionalPsi/listarProfissionaisPsi}" class="dropdown-item" sec:authorize="hasAuthority('ADMIN')">Lista de Psicólogos - Admin</a>
+                    			<a th:href="@{consulta/listarConsultas}" class="dropdown-item" sec:authorize="hasAuthority('ADMIN')">Lista de Consultas - Admin</a>
+                    			<a th:href="@{consulta/cadastrar}" class="dropdown-item" sec:authorize="hasAuthority('PROFISSIONAL')">Cadastrar nova consulta</a>
                     			<form th:action="@{/logout}" method="post">
                     				<button th:action="@{/logout}" class="dropdown-item">Logout</button>
                     			</form>

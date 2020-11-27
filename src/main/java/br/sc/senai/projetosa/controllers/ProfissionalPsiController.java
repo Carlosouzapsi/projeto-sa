@@ -4,6 +4,8 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.sc.senai.projetosa.model.entities.ProfissionalPsi;
 import br.sc.senai.projetosa.model.enums.PerfilTipo;
+import br.sc.senai.projetosa.services.ProfissionalPsiImpl;
 import br.sc.senai.projetosa.services.ProfissionalPsiService;
 
 
@@ -25,6 +28,9 @@ public class ProfissionalPsiController {
 	
 	@Autowired
 	ProfissionalPsiService profissionalPsiService;
+	
+	@Autowired
+	private ProfissionalPsiImpl profissionalPsi;
 	
 	@GetMapping("/cadastrar")
 	public String cadastrar(ProfissionalPsi profissionalpsi) {
@@ -80,6 +86,25 @@ public class ProfissionalPsiController {
 		}
 		return "cadastros/cadastroProfissionalPsi";
 	}
+	
+	/*
+	@GetMapping("/alterarPerfil/{idPro}")
+	public String editarPerfil(ProfissionalPsi profissional, Model model, @AuthenticationPrincipal User user) {
+		try {
+			
+			profissional = profissionalPsi.buscarPorEmail();
+			model.addAttribute("profissional", profissional);
+		
+		}
+		catch(Exception e) {
+			System.out.println("Erro: " + e.getMessage());
+		}
+		
+		return "cadastros/cadastroProfissionalPsi";
+		
+	}
+	*/
+	
 	
 	@GetMapping("/excluir/{idPro}")
 	public String excluirProfissionalPsi(@PathVariable("idPro") Long idPro, ProfissionalPsi profissionalPsi, ModelMap model) {
