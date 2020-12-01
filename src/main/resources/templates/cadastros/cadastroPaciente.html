@@ -22,7 +22,7 @@
 				<h2 class="title title-third">Cadastro de Paciente</h2>
 				<p class="description description-third">Preencha com atenção
 					cada campo do formulário.</p>
-				<form class="form" th:action="@{salvar}" method="post"
+				<form class="form" th:action="@{/paciente/salvar}" method="post"
 					th:object="${paciente}">
 					<div th:replace="fragments/alert"></div>
 					<div th:replace="fragments/validacao :: validacao"></div>
