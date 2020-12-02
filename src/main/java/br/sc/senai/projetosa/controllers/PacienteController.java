@@ -124,7 +124,7 @@ public class PacienteController {
 			System.out.println("Erro: " + e.getMessage());
 		}
 		
-		return "listas/listasDeConsultas";
+		return "listas/listaDeConsultas";
 	}
 	
 	
