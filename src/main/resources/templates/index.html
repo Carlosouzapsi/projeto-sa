@@ -58,7 +58,7 @@
                             <a href="" class="nav-link dropdown" data-toggle="dropdown" id="home-menu">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Navegação</a>
                     		<div class="dropdown-menu" id="links-dropdown">
                     			<a href="" sec:authorize="hasAuthority('ADMIN')" class="dropdown-item">Meu perfil - Admin</a>
-                    			<a th:href="@{/profissionalPsi/alterarPerfil/} + ${idPro}" sec:authorize="hasAuthority('PROFISSIONAL')"class="dropdown-item">Meu perfil - Psicólogo</a>
+                    			<a th:href="@{/profissionalPsi/alterarPerfil/}" sec:authorize="hasAuthority('PROFISSIONAL')"class="dropdown-item">Meu perfil - Psicólogo</a>
                     			<a href="" class="dropdown-item" sec:authorize="hasAuthority('PACIENTE')">Meu perfil - Paciente</a>
                     			<a href="" class="dropdown-item" sec:authorize="hasAuthority('PACIENTE')">Minhas Consultas - Paciente</a>
                     			<a href="" class="dropdown-item" sec:authorize="hasAuthority('PROFISSIONAL')">Minha Consultas - Psicólogo</a>

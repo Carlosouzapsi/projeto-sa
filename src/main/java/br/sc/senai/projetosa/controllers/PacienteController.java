@@ -4,6 +4,8 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +25,9 @@ public class PacienteController {
 			
 	@Autowired
 	private PacienteService pacienteService;
+	
+	@Autowired
+	private PacienteService paciente;
 		
 	@GetMapping("/cadastrar")
 	public String adicionar(Paciente paciente, Model model) {	
@@ -77,12 +82,13 @@ public class PacienteController {
 		}
 		return "cadastros/cadastroPaciente";
 	}
-	/*
-	@GetMapping("/alterarPerfil/{idPac}")
-	public String editarPerfil(Paciente paciente, Model model) {
+	
+	@GetMapping("/alterarPerfil/")
+	public String editarPerfil(Paciente paciente, Model model, @AuthenticationPrincipal User user) {
 		try {
 			
-			paciente = pacienteService.encontrarPaciente(paciente);
+		    String email = securityContextHolder.getContext().getAuthentication().getName();
+		    paciente.buscarPorEmail(email);
 			model.addAttribute("paciente", paciente);
 		
 		}
@@ -93,7 +99,7 @@ public class PacienteController {
 		return "cadastros/cadastroPaciente";
 		
 	}
-	*/
+	
 	
 	@GetMapping("/excluir/{idPac}")
 	public String excluirPaciente(Paciente paciente, Model model) {
