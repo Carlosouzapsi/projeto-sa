@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -28,7 +29,7 @@ public class PacienteController {
 	private PacienteService pacienteService;
 	
 	@Autowired
-	private PacienteServiceImpl paciente;
+	private PacienteServiceImpl pacienteServiceImpl;
 		
 	@GetMapping("/cadastrar")
 	public String adicionar(Paciente paciente, Model model) {	
@@ -88,8 +89,8 @@ public class PacienteController {
 	public String editarPerfil(Paciente paciente, Model model, @AuthenticationPrincipal User user) {
 		try {
 			
-		    String email = securityContextHolder.getContext().getAuthentication().getName();
-		    paciente.buscarPorEmail(email);
+		    String email = SecurityContextHolder.getContext().getAuthentication().getName();
+		    paciente = pacienteServiceImpl.buscarPorEmail(email);
 			model.addAttribute("paciente", paciente);
 		
 		}
