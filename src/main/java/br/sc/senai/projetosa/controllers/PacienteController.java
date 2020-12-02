@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.sc.senai.projetosa.model.entities.Consulta;
 import br.sc.senai.projetosa.model.entities.Paciente;
 import br.sc.senai.projetosa.model.enums.PerfilTipo;
+import br.sc.senai.projetosa.services.ConsultaService;
 import br.sc.senai.projetosa.services.PacienteService;
 import br.sc.senai.projetosa.services.PacienteServiceImpl;
 
@@ -30,6 +32,9 @@ public class PacienteController {
 	
 	@Autowired
 	private PacienteServiceImpl pacienteServiceImpl;
+	
+	@Autowired
+	private ConsultaService consultaService;
 		
 	@GetMapping("/cadastrar")
 	public String adicionar(Paciente paciente, Model model) {	
@@ -100,6 +105,20 @@ public class PacienteController {
 		
 		return "cadastros/cadastroPaciente";
 		
+	}
+	
+	@GetMapping("/minhasConsultas/")
+	public String minhasConsultas(Paciente paciente, Consulta consulta, Model model, @AuthenticationPrincipal User user) {
+		try {
+			String email = SecurityContextHolder.getContext().getAuthentication().getName();
+			paciente = pacienteServiceImpl.buscarPorEmail(email);
+			model.addAttribute("consulta", consultaService.listarConsultas());
+		}
+		catch(Exception e) {
+			System.out.println("Erro: " + e.getMessage());
+		}
+		
+		return "listas/listasDeConsultas";
 	}
 	
 	
