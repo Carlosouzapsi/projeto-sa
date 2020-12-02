@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -30,7 +31,7 @@ public class ProfissionalPsiController {
 	ProfissionalPsiService profissionalPsiService;
 	
 	@Autowired
-	private ProfissionalPsiImpl profissionalPsi;
+	private ProfissionalPsiImpl profissionalPsiImpl;
 	
 	@GetMapping("/cadastrar")
 	public String cadastrar(ProfissionalPsi profissionalpsi) {
@@ -87,13 +88,13 @@ public class ProfissionalPsiController {
 		return "cadastros/cadastroProfissionalPsi";
 	}
 	
-	/*
-	@GetMapping("/alterarPerfil/{idPro}")
-	public String editarPerfil(ProfissionalPsi profissional, Model model, @AuthenticationPrincipal User user) {
+	@GetMapping("/alterarPerfil/")
+	public String editarPerfil(ProfissionalPsi profissionalPsi, Model model, @AuthenticationPrincipal User user) {
 		try {
 			
-			profissional = profissionalPsi.buscarPorEmail();
-			model.addAttribute("profissional", profissional);
+		    String email = SecurityContextHolder.getContext().getAuthentication().getName();
+		    profissionalPsi = profissionalPsiImpl.buscarPorEmail(email);
+			model.addAttribute("profissionalPsi", profissionalPsi);
 		
 		}
 		catch(Exception e) {
@@ -103,7 +104,6 @@ public class ProfissionalPsiController {
 		return "cadastros/cadastroProfissionalPsi";
 		
 	}
-	*/
 	
 	
 	@GetMapping("/excluir/{idPro}")
