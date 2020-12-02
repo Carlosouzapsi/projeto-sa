@@ -120,8 +120,11 @@ public class PacienteController {
 			}
 			
 		}
-		catch(Exception e) {
-			System.out.println("Erro: " + e.getMessage());
+		catch(DataIntegrityViolationException ex){
+			
+			System.out.println("Erro: " + ex.getMessage());
+			
+			model.addAttribute("fail", "Consulta não encontrada!");
 		}
 		
 		return "listas/listaDeConsultas";
