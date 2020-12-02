@@ -110,9 +110,15 @@ public class PacienteController {
 	@GetMapping("/minhasConsultas/")
 	public String minhasConsultas(Paciente paciente, Consulta consulta, Model model, @AuthenticationPrincipal User user) {
 		try {
-			String email = SecurityContextHolder.getContext().getAuthentication().getName();
-			paciente = pacienteServiceImpl.buscarPorEmail(email);
-			model.addAttribute("consulta", consultaService.listarConsultas());
+			
+			if(consulta != null) {
+				
+				String email = SecurityContextHolder.getContext().getAuthentication().getName();
+				paciente = pacienteServiceImpl.buscarPorEmail(email);
+				model.addAttribute("consulta", consultaService.listarConsultas());
+			
+			}
+			
 		}
 		catch(Exception e) {
 			System.out.println("Erro: " + e.getMessage());
