@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import br.sc.senai.projetosa.model.entities.Paciente;
 import br.sc.senai.projetosa.model.enums.PerfilTipo;
 import br.sc.senai.projetosa.services.PacienteService;
+import br.sc.senai.projetosa.services.PacienteServiceImpl;
 
 @Controller
 @RequestMapping("/paciente")
@@ -27,7 +28,7 @@ public class PacienteController {
 	private PacienteService pacienteService;
 	
 	@Autowired
-	private PacienteService paciente;
+	private PacienteServiceImpl paciente;
 		
 	@GetMapping("/cadastrar")
 	public String adicionar(Paciente paciente, Model model) {	
