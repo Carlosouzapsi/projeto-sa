@@ -115,6 +115,7 @@ public class PacienteController {
 				
 				String email = SecurityContextHolder.getContext().getAuthentication().getName();
 				paciente = pacienteServiceImpl.buscarPorEmail(email);
+				
 				model.addAttribute("consulta", consultaService.listarConsultas());
 			
 			}
